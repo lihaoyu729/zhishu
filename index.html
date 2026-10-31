@@ -140,7 +140,7 @@
 </main>
 <script id="zz-data" type="application/json">
 {
- "generated_at": "2026-10-31 13:03 UTC",
+ "generated_at": "2026-10-31 13:08 UTC",
  "last_fetch": "2026-10-30 13:29:36",
  "today": "2026-10-31",
  "stats": { "total": 1420, "today_new": 796, "today_tagged": 101, "days": 2 },
@@ -255,7 +255,7 @@
   function renderChips() {
     var chips = document.getElementById('chips');
     chips.innerHTML = '';
-    [{ key: '__today__', name: '今日命中' }, { key: '__all__', name: '全部' }]
+    [{ key: '__today__', name: '今日命中' }]
       .concat(D.topics.filter(function (t) { return t.count > 0; })
                       .map(function (t) { return { key: t.name, name: NAMES[t.name] || t.name }; }))
       .forEach(function (t) {
@@ -269,7 +269,6 @@
   function renderAll() {
     var rows;
     if (state.topic === '__today__') rows = todayRows;
-    else if (state.topic === '__all__') rows = D.items.slice().reverse();
     else rows = D.items.filter(function (i) { return i.topics.indexOf(state.topic) >= 0; }).slice().reverse();
     document.getElementById('allCards').innerHTML =
       rows.slice(0, 120).map(cardHtml).join('') ||
