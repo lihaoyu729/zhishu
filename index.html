@@ -45,7 +45,7 @@
 
   .panel { background: #fff; border-radius: 14px; padding: 22px 24px;
            box-shadow: 0 1px 4px rgba(0,0,0,.05); display: flex; flex-direction: column; }
-  .panel.grow { flex: 1; min-height: 0; }
+  .panel.grow { flex: 1; min-height: 0; overflow-y: auto; }
   .panel h2 { margin: 0 0 16px; font-size: 20px; font-weight: 600; }
   .panel h2 .note { font-size: 13px; font-weight: 400; color: #86868b; margin-left: 12px; }
   .bar-row { display: grid; grid-template-columns: 200px 1fr 52px; align-items: center;
@@ -175,13 +175,13 @@
 
 <script id="zz-data" type="application/json">
 {
- "generated_at": "2026-10-31 15:22 UTC",
+ "generated_at": "2026-10-31 15:35 UTC",
  "last_fetch": "2026-10-30 13:29:36",
  "today": "2026-10-31",
  "stats": {
   "total": 1420,
   "today_new": 796,
-  "today_tagged": 101,
+  "today_tagged": 59,
   "days": 2
  },
  "topics": [
@@ -202,7 +202,7 @@
   },
   {
    "name": "超越计划美海军",
-   "count": 1,
+   "count": 0,
    "note": "长期主线·海军线"
   },
   {
@@ -212,12 +212,12 @@
   },
   {
    "name": "英军同类指控体系",
-   "count": 3,
+   "count": 0,
    "note": "对照线·英"
   },
   {
    "name": "法军同类指控体系",
-   "count": 1,
+   "count": 0,
    "note": "对照线·法（SCORPION 协同作战）"
   },
   {
@@ -227,17 +227,17 @@
   },
   {
    "name": "人工智能军事应用",
-   "count": 6,
+   "count": 1,
    "note": "前沿技术·AI（含 Maven 等指控相关 AI 项目）"
   },
   {
    "name": "无人自主系统",
-   "count": 156,
+   "count": 103,
    "note": "前沿技术·无人自主（原关键词库 Unmanned/UAS/autonomous systems/Autonomous Warfare Command 并入）"
   },
   {
    "name": "指挥控制基础能力",
-   "count": 15,
+   "count": 6,
    "note": "指控主业底层（原 command and control / C4ISR 并入）"
   }
  ],
@@ -262,24 +262,6 @@
    "summary": "美空军F-22战斗机在战术控制演示中空中指挥协同作战飞机（CCA），验证有人平台对无人僚机的实时指控能力。（题录级，待补全文核对）"
   },
   {
-   "id": "ZB20261031-0719",
-   "title": "Trakka推出光电监视、战术照明与一体化C4ISR方案",
-   "title_en": "Trakka Systems Advanced EO/IR Surveillance, Tactical Illumination & Integrated C4ISR Solutions",
-   "link": "https://www.defenseadvancement.com/news/trakka-systems-advanced-eo-ir-surveillance-tactical-illumination-integrated-c4isr-solutions/",
-   "date": "2026-10-29 06:15",
-   "source": "英国防务进展网",
-   "country": "英国",
-   "topics": [
-    "指挥控制基础能力"
-   ],
-   "chains": [
-    "③集成与互操作"
-   ],
-   "score": 6,
-   "batch": "2026-10-31",
-   "summary": "Trakka Systems公司展示先进光电/红外监视、战术照明与一体化C4ISR解决方案，面向机载与地面态势感知应用。（题录级，待补全文核对）"
-  },
-  {
    "id": "ZB20261031-0720",
    "title": "Dragonflight自主系统将集成到美海军SPARTAN无人机",
    "title_en": "Dragonflight Autonomy to Be Integrated on SPARTAN Drone for U.S. Navy",
@@ -296,24 +278,6 @@
    "score": 6,
    "batch": "2026-10-31",
    "summary": "Dragonflight自主系统将被集成到美海军SPARTAN无人机上，提升其自主飞行与任务执行能力。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-0741",
-   "title": "联合情报作战中心探索在DDIL环境采用智能体AI",
-   "title_en": "JIOC Explores Agentic AI Adoption for Mission-Specific Operations in DDIL Environments",
-   "link": "https://www.afcea.org/signal-media/emerging-edge/jioc-explores-agentic-ai-adoption-mission-specific-operations-ddil",
-   "date": "2026-10-28 23:00",
-   "source": "美国武装部队通信与电子协会陆军日会议网",
-   "country": "美国",
-   "topics": [
-    "人工智能军事应用"
-   ],
-   "chains": [
-    "④感知→决策"
-   ],
-   "score": 6,
-   "batch": "2026-10-31",
-   "summary": "联合情报作战中心（JIOC）正探索在拒止、降级、间歇与低带宽（DDIL）环境下采用智能体人工智能执行特定任务。（题录级，待补全文核对）"
   },
   {
    "id": "ZB20261031-0766",
@@ -334,24 +298,6 @@
    "summary": "美国海军陆战队在日本富士营演习中部署Neros Archer无人机，检验该型无人机的实战运用。（题录级，待补全文核对）"
   },
   {
-   "id": "ZB20261031-0810",
-   "title": "REPMUS演习演示自主水下声学监视与卫星数据中继",
-   "title_en": "Autonomous Subsurface Acoustic Monitoring & Satellite Data Relay Demonstrated at REPMUS",
-   "link": "https://www.defenseadvancement.com/news/autonomous-subsurface-acoustic-monitoring-satellite-data-relay-demonstrated-at-repmus/",
-   "date": "2026-10-28 06:14",
-   "source": "英国防务进展网",
-   "country": "英国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [
-    "⑤演习实验链路验证"
-   ],
-   "score": 6,
-   "batch": "2026-10-31",
-   "summary": "在REPMUS演习中，自主水下声学监视与卫星数据中继能力完成演示，验证无人水下平台与卫星链路的协同。（题录级，待补全文核对）"
-  },
-  {
    "id": "ZB20261031-0912",
    "title": "通用原子FQ-42协同作战飞机将借波音子公司扩产",
    "title_en": "General Atomics FQ-42 CCA Drone Production Ramp Up To Be Boosted By Boeing Subsidiary",
@@ -370,24 +316,6 @@
    "summary": "通用原子宣布由波音子公司圣灵防务担任FQ-42A协同作战飞机机身设计制造伙伴，支撑美空军2032年前至少500架CCA的列装目标。（题录级，待补全文核对）"
   },
   {
-   "id": "ZB20261031-0922",
-   "title": "AWS高管谈数据库与智能体AI未来走向",
-   "title_en": "AWS VP G2 Krishnamoorthy on the Future of Databases and Agentic AI | Cloud Wars Live",
-   "link": "https://cloudwars.com/ai/aws-vp-g2-krishnamoorthy-on-the-future-of-databases-and-agentic-ai-cloud-wars-live/",
-   "date": "2026-10-23 11:30",
-   "source": "美国云战争网",
-   "country": "美国",
-   "topics": [
-    "人工智能军事应用"
-   ],
-   "chains": [
-    "④感知→决策"
-   ],
-   "score": 6,
-   "batch": "2026-10-31",
-   "summary": "亚马逊网络服务公司副总裁在Cloud Wars Live节目中讨论数据库与智能体人工智能的发展前景及其对军方用户的意义。（题录级，待补全文核对）"
-  },
-  {
    "id": "ZB20261031-0924",
    "title": "丹麦授出人工智能就绪反无人机指控能力合同",
    "title_en": "Denmark Awards Contract for AI-Ready Counter-Drone C2 Capability",
@@ -403,22 +331,6 @@
    "score": 6,
    "batch": "2026-10-31",
    "summary": "丹麦授出反无人机指挥控制能力合同，要求系统具备人工智能就绪的目标识别与交战支援功能。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-1071",
-   "title": "弗劳恩霍夫IFAM建立海上风电自主系统验证链",
-   "title_en": "Fraunhofer IFAM Establishes Validation Chain for Autonomous Systems in Offshore Wind",
-   "link": "https://www.marinetechnologynews.com/news/fraunhofer-establishes-validation-chain-667047",
-   "date": "2026-10-28 21:01",
-   "source": "美国海事技术新闻杂志网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 6,
-   "batch": "2026-10-31",
-   "summary": "弗劳恩霍夫IFAM研究所建立面向海上风电场景的自主系统验证链，支撑自主装备测试评估。（题录级，待补全文核对）"
   },
   {
    "id": "ZB20261031-1235",
@@ -457,73 +369,6 @@
    "summary": "阿联酋EDGE集团支持本国海军开展自主系统试验，推动无人装备在海湾地区的实战验证。（题录级，待补全文核对）"
   },
   {
-   "id": "ZB20261031-1350",
-   "title": "空客美国演示分布式地面控制自主飞行",
-   "title_en": "Airbus U.S. Demonstrates Distributed Ground Control Capabilities During Latest Autonomous Flight Test",
-   "link": "https://seapowermagazine.org/airbus-u-s-demonstrates-distributed-ground-control-capabilities-during-latest-autonomous-flight-test/",
-   "date": "2026-10-28 17:40",
-   "source": "美国海上力量杂志网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [
-    "⑤演习实验链路验证"
-   ],
-   "score": 6,
-   "batch": "2026-10-31",
-   "summary": "空客美国公司在最新自主飞行试验中演示分布式地面控制能力，支持多点对无人平台的任务接管与指挥。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-1365",
-   "title": "Silynxcom研制可听辨无人机来袭的AI可穿戴设备",
-   "title_en": "Silynxcom Develops AI-Powered Wearable That Hears Drones Coming",
-   "link": "https://nextgendefense.com/silynxcom-wearable-hears-drones/",
-   "date": "2026-10-28 11:44",
-   "source": "美国下一代防务网",
-   "country": "美国",
-   "topics": [
-    "人工智能军事应用",
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 6,
-   "batch": "2026-10-31",
-   "summary": "Silynxcom公司研制人工智能可穿戴设备，可听辨无人机接近并向佩戴者告警，提升单兵低空感知。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-0627",
-   "title": "5G网络用于无人机探测单日取得两项进展",
-   "title_en": "Using 5G networks for drone detection – two major steps forward in one day",
-   "link": "https://www.unmannedairspace.info/latest-news-and-information/using-5g-networks-for-drone-detection-two-major-steps-forward-in-one-day/",
-   "date": "2026-10-30 17:19",
-   "source": "英国无人空域网",
-   "country": "英国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "业界在同一天公布两项基于5G网络的无人机探测进展，利用蜂窝通信基础设施实现广域低空目标发现，为低成本反无预警提供新路径。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-0646",
-   "title": "美澳企业合作研制管式发射、3D打印无人系统",
-   "title_en": "U.S. Firm MAG Aerospace and Australian Firm Rocket Fast Drones Partner on Tube-Launched, 3D-Printable Unmanned Systems",
-   "link": "https://www.thedefensenews.com/US-Firm-MAG-Aerospace-and-Australian-Firm-Rocket-Fast-Drones-Partner-on-Tube-Launched-3D-Printable-Unmanned-Systems/",
-   "date": "2026-10-30 16:19",
-   "source": "美国防务新闻资讯网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "美国MAG Aerospace公司与澳大利亚Rocket Fast Drones公司合作开发管式发射、可3D打印的无人系统，瞄准快速低成本制造与部署。（题录级，待补全文核对）"
-  },
-  {
    "id": "ZB20261031-0650",
    "title": "俄副总理称无人机袭击或致俄计划内柴油出口下降",
    "title_en": "Russia’s planned diesel exports may fall due to drone attacks — Novak",
@@ -538,22 +383,6 @@
    "score": 4,
    "batch": "2026-10-31",
    "summary": "俄罗斯副总理诺瓦克表示，无人机袭击可能影响俄计划内柴油出口，反映无人机对俄能源设施持续施压的实际效果。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-0651",
-   "title": "AT&T与爱立信在阿灵顿演示5G网络无人机探测",
-   "title_en": "AT&T and Ericsson “use 5G network for drone detection in Arlington”",
-   "link": "https://www.unmannedairspace.info/counter-uas-systems-and-policies/att-and-ericsson-use-5g-network-for-drone-detection-in-arlington/",
-   "date": "2026-10-30 16:09",
-   "source": "英国无人空域网",
-   "country": "英国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "AT&T与爱立信宣布在阿灵顿利用5G网络开展无人机探测，验证蜂窝基站感知低空目标的可行性。（题录级，待补全文核对）"
   },
   {
    "id": "ZB20261031-0664",
@@ -588,22 +417,6 @@
    "summary": "美国海军一艘无人艇首次部署，军方希望借此提升无人艇在舰队运用中的地位与可见度。（题录级，待补全文核对）"
   },
   {
-   "id": "ZB20261031-0701",
-   "title": "Coforge推出自主软件工厂统筹AI智能体协同",
-   "title_en": "Coforge Introduces Autonomous Software Factory to Coordinate AI Agents",
-   "link": "https://analyticsindiamag.com/ai-news/coforge-introduces-autonomous-software-factory-to-coordinate-ai-agents",
-   "date": "2026-10-29 10:00",
-   "source": "印度《分析印度》杂志网",
-   "country": "印度",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "印度Coforge公司推出自主软件工厂，用于统一协调多个人工智能智能体执行任务，探索企业级智能体编排。（题录级，待补全文核对）"
-  },
-  {
    "id": "ZB20261031-0730",
    "title": "西媒分析无人机与AI如何改变美军特种部队作战样式",
    "title_en": "SEAL y Delta Force: así han cambiado los drones y la IA a la élite militar que retrata Hollywood",
@@ -618,86 +431,6 @@
    "score": 4,
    "batch": "2026-10-31",
    "summary": "西班牙数字盾网刊文分析无人机与人工智能对海豹突击队、三角洲部队等美军精英部队作战样式的重塑。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-0732",
-   "title": "西澳警方在珀斯南部启动无人机项目",
-   "title_en": "WA Police Force launches drone program in southern Perth",
-   "link": "https://australianaviation.com.au/2026/10/wa-police-force-launches-drone-program-in-southern-perth/",
-   "date": "2026-10-29 04:11",
-   "source": "澳大利亚航空公司网",
-   "country": "澳大利亚",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "西澳大利亚州警察部队在珀斯南部启动无人机项目，将无人机纳入日常警务运用。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-0754",
-   "title": "美陆战队无人机分队在菲律宾巴拉望机场展开行动",
-   "title_en": "U.S. Marine Drone Detachment in the Philippines Operating from Palawan Airfield",
-   "link": "https://news.usni.org/2026/10/28/u-s-marine-drone-detachment-in-the-philippines-operating-from-palawan-airfield",
-   "date": "2026-10-28 19:58",
-   "source": "美国海军学院新闻网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "美国海军陆战队无人机分遣队在菲律宾以巴拉望机场为基地展开行动，强化第一岛链无人作战前沿部署。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-0767",
-   "title": "乌克兰破获盗卖军用无人机翻新转售团伙",
-   "title_en": "Ucrania destapa una trama que robaba drones al Ejército y se los revendía como nuevos",
-   "link": "https://www.escudodigital.com/internacional/europa/ucrania-destapa-una-trama-que-robaba-drones-al-ejercito-y-se-los-revendia-como-nuevos.html",
-   "date": "2026-10-28 17:31",
-   "source": "西班牙数字盾网",
-   "country": "西班牙",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "乌克兰破获一个盗窃军方无人机并翻新转售的犯罪团伙，涉及无人机装备流失与再销售链条。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-0808",
-   "title": "英企发布可扩展自主海上打击舰队",
-   "title_en": "Scalable Autonomous Maritime Fleet For Tactical Strike Unveiled",
-   "link": "https://www.defenseadvancement.com/news/scalable-autonomous-maritime-fleet-for-tactical-strike-unveiled/",
-   "date": "2026-10-28 06:30",
-   "source": "英国防务进展网",
-   "country": "英国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "英国防务进展网报道，一种可扩展的自主海上舰队方案亮相，面向战术打击任务，强调多艇协同与规模化运用。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-0813",
-   "title": "ParaZero发布地面引导拦截与动能捕网自主反无平台",
-   "title_en": "ParaZero Unveils Autonomous C-UAS Platform Using Ground-Guided Interceptors & Kinetic Nets",
-   "link": "https://www.defenseadvancement.com/news/parazero-unveils-autonomous-c-uas-platform-using-ground-guided-interceptors-kinetic-nets/",
-   "date": "2026-10-28 05:34",
-   "source": "英国防务进展网",
-   "country": "英国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "以色列ParaZero公司发布自主反无人机平台，采用地面引导拦截器与动能捕网实施近程无人机拦截。（题录级，待补全文核对）"
   },
   {
    "id": "ZB20261031-0824",
@@ -732,38 +465,6 @@
    "summary": "乌克兰StarGate无人机已投入伤员撤离任务，无人平台由侦察打击向战场卫勤保障拓展。（题录级，待补全文核对）"
   },
   {
-   "id": "ZB20261031-0841",
-   "title": "Inertial Labs推出可编程INS-NV平台发展替代PNT",
-   "title_en": "Inertial Labs Launches Programmable INS-NV Platform for Alt-PNT Development",
-   "link": "https://www.defenseadvancement.com/news/inertial-labs-launches-programmable-ins-nv-platform-for-alt-pnt-development/",
-   "date": "2026-10-27 15:47",
-   "source": "英国防务进展网",
-   "country": "英国",
-   "topics": [
-    "指挥控制基础能力"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "Inertial Labs公司推出可编程INS-NV开发平台，用于替代定位导航授时（Alt-PNT）系统研制，支撑GPS拒止环境导航。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-0843",
-   "title": "VIAVI旗下Inertial Labs以可编程INS加速替代PNT设计",
-   "title_en": "Inertial Labs, a VIAVI Solutions Company, Accelerates Complex Alt-PNT and Guidance Systems Design with Programmable INS Development Platform",
-   "link": "https://insidegnss.com/inertial-labs-a-viavi-solutions-company-accelerates-complex-alt-pnt-and-guidance-systems-design-with-programmable-ins-development-platform/",
-   "date": "2026-10-27 15:41",
-   "source": "美国GNSS内情网",
-   "country": "美国",
-   "topics": [
-    "指挥控制基础能力"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "VIAVI Solutions旗下Inertial Labs推出可编程惯性导航开发平台，加速复杂替代PNT与制导系统设计。（题录级，待补全文核对）"
-  },
-  {
    "id": "ZB20261031-0846",
    "title": "MQ-8C火力侦察无人直升机在美陆军获得新生",
    "title_en": "MQ-8C Fire Scout Unmanned Helicopters Get Second Life With U.S. Army",
@@ -778,38 +479,6 @@
    "score": 4,
    "batch": "2026-10-31",
    "summary": "MQ-8C火力侦察无人直升机在美陆军获得新用途，这一曾被退役的机型重新承担任务。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-0869",
-   "title": "Vision Pace反无监视与目标跟踪系统获得订单",
-   "title_en": "Order Secured for Vision Pace c-UAS Surveillance & Target Tracking System",
-   "link": "https://www.defenseadvancement.com/news/order-secured-for-vision-pace-c-uas-surveillance-target-tracking-system/",
-   "date": "2026-10-27 06:38",
-   "source": "英国防务进展网",
-   "country": "英国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "Vision Pace反无人机监视与目标跟踪系统获得采购订单，将用于低空目标监视与跟踪。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-0883",
-   "title": "欧空局Celeste完成低轨PNT端到端在轨验证",
-   "title_en": "ESA’s Celeste Demonstrates End-to-End LEO-PNT in Orbit",
-   "link": "https://insidegnss.com/esas-celeste-demonstrates-end-to-end-leo-pnt-in-orbit/",
-   "date": "2026-10-26 15:31",
-   "source": "美国GNSS内情网",
-   "country": "美国",
-   "topics": [
-    "指挥控制基础能力"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "欧空局Celeste项目完成低轨定位导航授时（LEO-PNT）端到端在轨演示，验证低轨星座提供导航服务的可行性。（题录级，待补全文核对）"
   },
   {
    "id": "ZB20261031-0891",
@@ -842,22 +511,6 @@
    "score": 4,
    "batch": "2026-10-31",
    "summary": "美国陆军协会网报道，美陆军正把无人机训练融入全军各部队训练体系，推动无人装备普及运用。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-0894",
-   "title": "美特种作战司令部采购TEKEVER无人机执行空中情报任务",
-   "title_en": "USSOCOM Purchases TEKEVER UAS for Aerial Intelligence Missions",
-   "link": "https://euro-sd.com/2026/10/news/54429/ussocom-tekever-uas/",
-   "date": "2026-10-26 11:37",
-   "source": "德国欧洲安全与防务网",
-   "country": "德国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "美特种作战司令部采购葡萄牙TEKEVER无人机系统，用于空中情报搜集任务。（题录级，待补全文核对）"
   },
   {
    "id": "ZB20261031-0896",
@@ -908,22 +561,6 @@
    "summary": "澳英美三国官员表示，AUKUS框架下自主水下作战合作按计划推进，无人潜航器协同研制持续深化。（题录级，待补全文核对）"
   },
   {
-   "id": "ZB20261031-0926",
-   "title": "DARPA自主车辆演示指挥控制下的机器人杀伤力",
-   "title_en": "Autonomous vehicles deliver command-controlled robotic lethality",
-   "link": "https://www.darpa.mil/news/2026/autonomous-vehicles-deliver",
-   "date": "2026-10-22 21:27",
-   "source": "美国国防高级研究计划局网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "美国国防高级研究计划局演示自主车辆在指挥控制下实施机器人化杀伤，探索无人地面平台的火力运用。（题录级，待补全文核对）"
-  },
-  {
    "id": "ZB20261031-0934",
    "title": "美陆军太平洋船队探索更高程度自主化",
    "title_en": "How The U.S. Army’s ‘Navy’ Aims To Go More Autonomous With Its Vessels In The Pacific",
@@ -956,38 +593,6 @@
    "summary": "澳大利亚幽灵鲨（Ghost Shark）大型无人潜航器首次展示从水下释放空中无人机的能力，拓展跨域作战链路。（题录级，待补全文核对）"
   },
   {
-   "id": "ZB20261031-0939",
-   "title": "欧洲酝酿赋予公用事业和基础设施企业反无处置权",
-   "title_en": "Europe weighs giving utilities, infrastructure companies more powers to bring down drones",
-   "link": "https://www.c4isrnet.com/unmanned/2026/10/21/europe-weighs-giving-utilities-infrastructure-companies-more-powers-to-bring-down-drones/",
-   "date": "2026-10-21 11:07",
-   "source": "美国C4ISR网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "欧洲正讨论赋予公用事业与基础设施企业更大权限以处置入侵无人机，扩大关键设施反无防御的社会参与面。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-0970",
-   "title": "座头鲸分泌物采样无人机背后的设计故事",
-   "title_en": "Patrick Stewart Made It So: How Captain Picard Helped Build a Whale-Snot Drone",
-   "link": "https://www.popularmechanics.com/science/a74294457/patrick-stewart-made-it-so/",
-   "date": "2026-10-30 16:12",
-   "source": "美国大众机械网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "美国大众机械网介绍一款用于采集鲸鱼分泌物的无人机研发过程，展示特种无人平台在科研领域的应用。（题录级，待补全文核对）"
-  },
-  {
    "id": "ZB20261031-1008",
    "title": "法海军与DGA在地中海评估Exail DriX O-16无人艇",
    "title_en": "French Navy and DGA Evaluate Exail DriX O-16 USV in the Mediterranean",
@@ -1002,22 +607,6 @@
    "score": 4,
    "batch": "2026-10-31",
    "summary": "法国海军与武器装备总署在地中海评估Exail公司DriX O-16无人水面艇，检验其海上作业能力。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-1010",
-   "title": "Zipline推出更安静无人机配送回应社区噪声关切",
-   "title_en": "Zipline Announces Quieter Drone Deliveries as Communities Raise Noise Concerns",
-   "link": "https://dronelife.com/2026/10/29/zipline-drone-delivery-noise-reduction/",
-   "date": "2026-10-29 15:07",
-   "source": "美国无人机生活网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "Zipline公司宣布降低无人机配送噪声的新方案，回应社区对无人机运行噪声的关注。（题录级，待补全文核对）"
   },
   {
    "id": "ZB20261031-1012",
@@ -1068,38 +657,6 @@
    "summary": "HII公司宣布ROMULUS无人艇生产达到重要里程碑，系列无人艇建造持续推进。（题录级，待补全文核对）"
   },
   {
-   "id": "ZB20261031-1049",
-   "title": "新加坡试验空中投放FPV无人机",
-   "title_en": "Singapore Tests FPV Drones Launched from the Air",
-   "link": "https://www.uasvision.com/2026/10/29/tests-fpv-drones-launched-from-the-air/",
-   "date": "2026-10-29 06:45",
-   "source": "英国无人机愿景网",
-   "country": "英国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "新加坡测试从空中平台投放FPV无人机，探索无人机空中发射与远程投送方式。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-1050",
-   "title": "无人机采集野生虎鲸呼气样本与热成像数据",
-   "title_en": "Drones Collect Breath Samples and Thermal Data from Wild Killer Whales",
-   "link": "https://www.uasvision.com/2026/10/29/drones-collect-breath-samples-and-thermal-data-from-wild-killer-whales/",
-   "date": "2026-10-29 06:30",
-   "source": "英国无人机愿景网",
-   "country": "英国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "科研团队使用无人机采集野生虎鲸的呼气样本与热成像数据，实现非接触式野生动物监测。（题录级，待补全文核对）"
-  },
-  {
    "id": "ZB20261031-1060",
    "title": "K-DEX2026勾勒自主系统与反无作战未来图景",
    "title_en": "From Autonomous Systems to Counter-Drone: K-DEX 2026 Maps Out Future Battlefield Technologies",
@@ -1114,22 +671,6 @@
    "score": 4,
    "batch": "2026-10-31",
    "summary": "韩国K-DEX 2026展会集中展示自主系统与反无人机技术，映射未来战场无人化发展方向。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-1067",
-   "title": "洛马数据链组件实现GMLRS飞行中改向测试成功",
-   "title_en": "Lockheed Conducts Successful Test Redirecting GMLRS In-Flight With Datalink Package",
-   "link": "https://www.defensedaily.com/lockheed-conducts-successful-test-redirecting-gmlrs-in-flight-with-datalink-package/army/",
-   "date": "2026-10-28 21:29",
-   "source": "美国防务日报网",
-   "country": "美国",
-   "topics": [
-    "指挥控制基础能力"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "洛克希德·马丁公司完成数据链组件测试，实现制导多管火箭弹（GMLRS）飞行中改向，验证弹在途重瞄能力。（题录级，待补全文核对）"
   },
   {
    "id": "ZB20261031-1078",
@@ -1196,22 +737,6 @@
    "summary": "美陆军向通用动力任务系统公司授出便携式网络与电子战平台合同，为部队提供机动的网络电磁行动能力。（题录级，待补全文核对）"
   },
   {
-   "id": "ZB20261031-1098",
-   "title": "美各州无人机法规碎片化引发运营担忧",
-   "title_en": "New State Drone Laws Create Patchwork of Restrictions, Raising Concerns for Operators",
-   "link": "https://dronelife.com/2026/10/28/state-drone-laws-patchwork-flight-restrictions/",
-   "date": "2026-10-28 15:33",
-   "source": "美国无人机生活网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "美国多个州相继出台无人机法规，形成规则拼图，引发运营商对合规成本与飞行一致性的担忧。（题录级，待补全文核对）"
-  },
-  {
    "id": "ZB20261031-1102",
    "title": "ANRA以空域数据推进北约验证反无人机技术",
    "title_en": "ANRA Advances NATO-Tested Counter-Drone Technology With UTM Airspace Data",
@@ -1244,22 +769,6 @@
    "summary": "北约多国通过新采购协议可更快获得经实战检验的丹麦无人机，缩短盟国装备引进周期。（题录级，待补全文核对）"
   },
   {
-   "id": "ZB20261031-1107",
-   "title": "美FCC称业界支持开放800兆赫频段供无人机使用",
-   "title_en": "FCC Touts Industry Support for Opening 800 MHz Cellular Spectrum to Drones",
-   "link": "https://dronelife.com/2026/10/28/fcc-drone-spectrum-800-mhz-industry-support/",
-   "date": "2026-10-28 12:45",
-   "source": "美国无人机生活网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "美联邦通信委员会表示，业界支持将800兆赫蜂窝频段开放给无人机通信，为超视距无人机运行提供频谱基础。（题录级，待补全文核对）"
-  },
-  {
    "id": "ZB20261031-1123",
    "title": "Shield AI与莱茵金属合作提升卡塔尔无人艇ISR自主性",
    "title_en": "Shield AI and Rheinmetall Barzan Advanced Technologies to advance autonomy for ISR on Qatari Unmanned Surface Vessels (USVs)",
@@ -1276,20 +785,20 @@
    "summary": "Shield AI与莱茵金属Barzan公司合作，为卡塔尔无人水面艇推进情报监视侦察（ISR）自主能力建设。（题录级，待补全文核对）"
   },
   {
-   "id": "ZB20261031-1158",
-   "title": "Drone Volt发布碳铝结构Hercules100可载100千克",
-   "title_en": "Drone Volt unveils carbon-and-aluminium Hercules 100 to lift 100 kg",
-   "link": "https://www.jeccomposites.com/news/by-jec/drone-volt-unveils-carbon-and-aluminium-hercules-100-to-lift-100-kg/?news_type=applications&end_use_application=aerospace,defence-security-ballistics&tax_product=carbon",
-   "date": "2026-10-27 10:59",
-   "source": "德国JEC复合材料网",
-   "country": "德国",
+   "id": "ZB20261031-1164",
+   "title": "Exail introduces Marins M1 INS for small and uncrewed naval platforms",
+   "title_en": "Exail introduces Marins M1 INS for small and uncrewed naval platforms",
+   "link": "https://navaltoday.com/2026/10/27/exail-introduces-marins-m1-ins-for-small-and-uncrewed-naval-platforms",
+   "date": "2026-10-27 08:25",
+   "source": "荷兰今日海军网",
+   "country": "荷兰",
    "topics": [
     "无人自主系统"
    ],
    "chains": [],
    "score": 4,
    "batch": "2026-10-31",
-   "summary": "法国Drone Volt公司发布碳纤维与铝合金结构的Hercules 100无人机，有效载荷达100千克，面向重型物流运输。（题录级，待补全文核对）"
+   "summary": ""
   },
   {
    "id": "ZB20261031-1167",
@@ -1324,22 +833,6 @@
    "summary": "以色列IWI公司Arbel反无人机系统在泰国部署，为泰军提供针对小型无人机的点防御手段。（题录级，待补全文核对）"
   },
   {
-   "id": "ZB20261031-1171",
-   "title": "美海军作战部长称无人混合舰队近期概念过于脆弱",
-   "title_en": "CNO Downplays Near Term Unmanned Hybrid Fleet, Says Concept Of Deployment Too Fragile",
-   "link": "https://www.defensedaily.com/cno-downplays-near-term-unmanned-hybrid-fleet-says-concept-of-deployment-too-fragile/navy-usmc/",
-   "date": "2026-10-26 21:51",
-   "source": "美国防务日报网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "美海军作战部长淡化近期无人混合舰队概念，认为当前部署构想过于脆弱，有人平台仍不可替代。（题录级，待补全文核对）"
-  },
-  {
    "id": "ZB20261031-1178",
    "title": "Saildrone获瑞典武装部队波罗的海海域感知任务",
    "title_en": "Saildrone Selected for Baltic Sea Maritime Domain Mission with Swedish Armed Forces",
@@ -1354,38 +847,6 @@
    "score": 4,
    "batch": "2026-10-31",
    "summary": "Saildrone无人帆船获选执行瑞典武装部队波罗的海海域态势感知任务，提供长航时海上监视。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-1190",
-   "title": "瑞典选用4艘Saildrone无人艇监视波罗的海",
-   "title_en": "Sweden selects four Saildrone USVs to monitor Baltic Sea",
-   "link": "https://navaltoday.com/2026/10/26/sweden-selects-four-saildrone-usvs-to-monitor-baltic-sea",
-   "date": "2026-10-26 12:48",
-   "source": "荷兰今日海军网",
-   "country": "荷兰",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "瑞典选定4艘Saildrone无人水面艇执行波罗的海监视任务，强化对该海域的持续无人感知。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-1191",
-   "title": "30兆瓦潮汐能项目将配AI海洋生物识别",
-   "title_en": "Inyanga's 30MW Tidal Project to Feature AI-Powered Marine Life Detection",
-   "link": "https://www.marinetechnologynews.com/news/inyanga-tidal-project-feature-666958",
-   "date": "2026-10-26 12:37",
-   "source": "美国海事技术新闻杂志网",
-   "country": "美国",
-   "topics": [
-    "人工智能军事应用"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "Inyanga公司30兆瓦潮汐能项目将引入人工智能海洋生物检测功能，兼顾能源开发与海洋生态监测。（题录级，待补全文核对）"
   },
   {
    "id": "ZB20261031-1193",
@@ -1434,22 +895,6 @@
    "score": 4,
    "batch": "2026-10-31",
    "summary": "法国土伦军港发生无人机探测事件，凸显北约海军基地反无人机防御的现实紧迫性。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-1204",
-   "title": "经费与编制问题或制约美自主作战司令部筹建",
-   "title_en": "Funding, force-structure issues could hinder Hegseth’s new autonomous command",
-   "link": "https://www.defenseone.com/threats/2026/10/funding-hegseth-autonomous-command/416800/?oref=d1-skybox-hp",
-   "date": "2026-10-25 10:00",
-   "source": "美国防务一号网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "美国防务一号网分析，经费与部队编制问题可能妨碍赫格塞思新设自主作战司令部的推进。（题录级，待补全文核对）"
   },
   {
    "id": "ZB20261031-1207",
@@ -1564,22 +1009,6 @@
    "summary": "法国Exail公司获得海军无人水面艇导航系统合同，为无人艇提供自主航行与控制能力。（题录级，待补全文核对）"
   },
   {
-   "id": "ZB20261031-1250",
-   "title": "埃尔比特收购加拿大自主水下系统公司",
-   "title_en": "Elbit Systems buys Canadian autonomous underwater systems company",
-   "link": "https://navaltoday.com/2026/10/22/elbit-systems-buys-canadian-autonomous-underwater-systems-company",
-   "date": "2026-10-22 07:30",
-   "source": "荷兰今日海军网",
-   "country": "荷兰",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "以色列埃尔比特系统公司收购一家加拿大自主水下系统企业，扩充其水下无人装备布局。（题录级，待补全文核对）"
-  },
-  {
    "id": "ZB20261031-1258",
    "title": "乌军首次以无人机后送伤员",
    "title_en": "Ukrainian Forces Evacuate Wounded Soldier by Aerial Drone for First Time",
@@ -1612,22 +1041,6 @@
    "summary": "美陆军将反无人机装备评估移至摩洛哥进行，以贴近实战环境加快装备列装速度。（题录级，待补全文核对）"
   },
   {
-   "id": "ZB20261031-1262",
-   "title": "美国战争困境网呼吁建立无人机电池供应链韧性",
-   "title_en": "Establishing Battery Supply Chain Resilience for Drones",
-   "link": "https://warontherocks.com/cogs-of-war/establishing-battery-supply-chain-resilience-for-drones/",
-   "date": "2026-10-21 08:00",
-   "source": "美国战争困境网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "美国战争困境网刊文呼吁建立无人机电池供应链韧性，降低对单一来源的依赖以保障大规模无人机运用。（题录级，待补全文核对）"
-  },
-  {
    "id": "ZB20261031-1268",
    "title": "乌克兰以F-16击落俄喷气动力无人机",
    "title_en": "Under Siege, Ukraine Uses F-16s to Shoot Down Russia’s Jet-Powered Drones",
@@ -1658,22 +1071,6 @@
    "score": 4,
    "batch": "2026-10-31",
    "summary": "XTend公司获得美军6000架打击者作战无人机订单，价值逾4050万美元，须先交付400架方可进入下一阶段评估。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-1293",
-   "title": "FLEX L12森林怪物自主车完成5吨载荷首秀",
-   "title_en": "FLEX L12 “forest monster” makes autonomous debut with 5-ton load",
-   "link": "https://defence-blog.com/flex-l12-forest-monster-makes-autonomous-debut-with-5-ton-load/",
-   "date": "2026-10-30 20:13",
-   "source": "美国防务博客网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "FLEX L12森林怪物无人车完成自主首秀，载荷达5吨，面向重型物资运输与复杂地形机动。（题录级，待补全文核对）"
   },
   {
    "id": "ZB20261031-1302",
@@ -1756,38 +1153,6 @@
    "summary": "欧洲防务评论网介绍Skapion系统，其能力由单目标反无人机扩展到应对无人机蜂群。（题录级，待补全文核对）"
   },
   {
-   "id": "ZB20261031-1358",
-   "title": "土保罗三国就黑海安全机制达成一致",
-   "title_en": "Türkiye, Bulgaria and Romania agree on Black Sea security mechanism after drone attacks",
-   "link": "https://www.turkiyetoday.com/region/turkiye-bulgaria-and-romania-agree-on-black-sea-security-mechanism-after-drone-attack-3231218",
-   "date": "2026-10-28 14:29",
-   "source": "土耳其今日土耳其网",
-   "country": "土耳其",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "土耳其、保加利亚与罗马尼亚在无人机袭击频发背景下就黑海安全机制达成一致，强化区域联合应对。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-1362",
-   "title": "Auterion推出子弹式Talon无人机拦截器",
-   "title_en": "A Drone Interceptor Fired Like a Bullet? Meet Auterion’s Talon",
-   "link": "https://nextgendefense.com/drone-interceptor-auterion-talon/",
-   "date": "2026-10-28 12:17",
-   "source": "美国下一代防务网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "Auterion公司推出Talon无人机拦截器，以子弹式高速发射方式实施无人机硬杀伤拦截。（题录级，待补全文核对）"
-  },
-  {
    "id": "ZB20261031-1364",
    "title": "俄构想融合五种反无战术的无人机防御穹顶",
    "title_en": "Russia Envisions ‘Anti-Drone Dome’ Mixing Five Counter-Drone Tactics",
@@ -1802,38 +1167,6 @@
    "score": 4,
    "batch": "2026-10-31",
    "summary": "俄罗斯正构想融合五种反无人机战术的防御穹顶，以多层手段应对无人机威胁。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-1381",
-   "title": "GuardAero以36管转管炮应对FPV无人机",
-   "title_en": "GuardAero Bets on a 36-Barrel Turret to Beat FPV Drones",
-   "link": "https://nextgendefense.com/guardaero-turret-fpv-drones/",
-   "date": "2026-10-27 12:38",
-   "source": "美国下一代防务网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "GuardAero公司推出36管转管炮塔方案，以高射速火力应对FPV无人机集群威胁。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261031-1395",
-   "title": "Malloy将T-150货运无人机改为三联火箭反无猎手",
-   "title_en": "A Cargo Drone No More: Malloy Turns T-150 Into a Three-Rocket UAV Hunter",
-   "link": "https://nextgendefense.com/cargo-drone-malloy-rocket/",
-   "date": "2026-10-26 11:33",
-   "source": "美国下一代防务网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "Malloy公司将T-150货运无人机改装为可携带3枚火箭弹的反无人机平台，实现由运到打的转变。（题录级，待补全文核对）"
   },
   {
    "id": "ZB20261031-1404",
@@ -1868,38 +1201,6 @@
    "summary": "欧洲启动DECODER项目，作为新的无人机与反无人机防务计划，统筹相关技术研发与装备建设。（题录级，待补全文核对）"
   },
   {
-   "id": "ZB20261031-1417",
-   "title": "英企推出无雷达无激光雷达低特征地面无人车",
-   "title_en": "No Radar, No Lidar: This British Ground Drone Is Designed to Keep a Low Profile",
-   "link": "https://nextgendefense.com/british-ground-drone-low-profile/",
-   "date": "2026-10-20 12:51",
-   "source": "美国下一代防务网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-31",
-   "summary": "英国一家企业推出不依赖雷达与激光雷达的地面无人车，以低信号特征设计提升战场隐蔽性。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261030-0624",
-   "title": "美FCC放开800兆赫蜂窝频段供无人机使用",
-   "title_en": "FCC Opens 50 MHz of Cellular Spectrum for Drone Operations",
-   "link": "https://dronelife.com/2026/10/29/fcc-opens-cellular-spectrum-drones-800-mhz/",
-   "date": "2026-10-29 15:39",
-   "source": "美国无人机生活网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-30",
-   "summary": "美国无人机生活网报道，美国联邦通信委员会10月29日投票取消一项实施数十年的限制，向无人机开放800MHz蜂窝频段的50兆赫许可频谱，允许其用于指挥、控制、通信与载荷作业。该限制1991年为防机载手机干扰地面蜂窝网络而设；FCC认定现代无线网络技术已能避免此类干扰。新规不创设无人机专用频段，也不改变联邦航空局的飞行授权要求。决议以\"FCC 26-72报告与命令\"通过，卡尔主席及戈麦斯、特拉斯蒂两名委员投赞成票；FCC前一日还宣布了涵盖无人机通信与反无人机雷达的航空频谱现代化提案。"
-  },
-  {
    "id": "ZB20261030-0619",
    "title": "Carahsoft将分销Sevii自主AI网络防御平台面向政府",
    "title_en": "Carahsoft to Distribute Sevii’s Autonomous AI Cyber Defense Platform to Government",
@@ -1914,38 +1215,6 @@
    "score": 4,
    "batch": "2026-10-30",
    "summary": "据美国政府合同新闻网报道，Carahsoft公司将向政府市场分销Sevii公司的自主AI网络防御平台。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261030-0611",
-   "title": "美跨机构反无人机特遣部队成立周年强调分层防御",
-   "title_en": "There is no silver bullet technology that will solve the drone problem",
-   "link": "https://defence.tech/there-is-no-silver-bullet-technology-that-will-solve-the-drone-problem/",
-   "date": "2026-10-29 16:11",
-   "source": "欧洲防务技术网",
-   "country": "欧洲",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-30",
-   "summary": "欧洲防务技术网报道，美国\"跨机构联合特遣部队401\"（JIATF-401）成立一年后总结工作。该部队2025年8月成立，牵头国防部反小型无人机事务，由陆军托尼·林德上校负责快速采办，人员来自各军种并嵌入海关与边境保护局、联邦航空局、联邦调查局、国土安全部、特勤局等机构。其关键工具是集中式采购平台drones.mil，可聚合需求、快速采办经测试验证的反无人机技术；部队推动统一战术用户界面与数据标准，以开放架构实现传感器与效应器\"即插即用\"互操作。林德强调\"没有单一技术能解决无人机问题\"，转向分层\"系统之系统\"防御，并接管俄克拉荷马州锡尔堡联合反无人机大学。"
-  },
-  {
-   "id": "ZB20261030-0585",
-   "title": "伊朗宣称俘获美MQM-170C靶机美军斥其惯于撒谎",
-   "title_en": "Let’s Talk About The U.S. Target Drone Iran Claims To Have Recovered Intact",
-   "link": "https://www.twz.com/news-features/lets-talk-about-the-u-s-target-drone-iran-claims-to-have-recovered-intact",
-   "date": "2026-10-29 18:01",
-   "source": "美国战区网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-30",
-   "summary": "美国战区网报道，伊朗伊斯兰革命卫队宣称在霍尔木兹海峡以西以\"进攻性电子战行动\"俘获一架基本完好的美制MQM-170C\"不法分子\"G2无人机（格里方航空航天公司研制，美军主要用作训练靶机），并公布红外跟踪与回收视频。美中央司令部发言人霍金斯上校斥伊朗\"因绝望而反复撒谎\"，但对美军是否在该地区损失该机既未证实也未否认。该型机长近11英尺、翼展16英尺、续航8小时；文章注意到美陆军6月曾授予格里方近6800万美元采购\"不法分子\"Gen 3的合同（初稿称支持对伊行动后删除表述），不能排除伊方俘获的是美军训练测试中失控的靶机。"
   },
   {
    "id": "ZB20261030-0581",
@@ -1978,22 +1247,6 @@
    "score": 4,
    "batch": "2026-10-30",
    "summary": "美国海上力量杂志网报道，美国最大军用造船企业HII 10月27日在路易斯安那州新伊比利亚为\"罗慕路斯\"无人水面艇举行生产里程碑仪式，在首艇上安装纪念牌匾，路易斯安那州州长兰德里、海军作战部副部长沃斯基中将等出席。美国海军近期授予HII建造10艘该型艇的合同，属中型无人水面艇项目；该艇基于HII开放架构的\"奥德赛\"自主系统，可执行情报监视侦察、反水雷、打击、反无人系统以及无人潜航器与无人机收放等任务。评估阶段该系统完成了420海里、28小时的长航时任务测试。"
-  },
-  {
-   "id": "ZB20261030-0562",
-   "title": "美陆军选定洛马推进十亿美元未来拦截弹项目",
-   "title_en": "Army selects Lockheed Martin for billion-dollar Future Interceptor program",
-   "link": "https://defensescoop.com/2026/10/29/army-selects-lockheed-martin-future-interceptor-program/",
-   "date": "2026-10-29 19:08",
-   "source": "美国国防新闻网",
-   "country": "美国",
-   "topics": [
-    "指挥控制基础能力"
-   ],
-   "chains": [],
-   "score": 0,
-   "batch": "2026-10-30",
-   "summary": "美国国防新闻网报道，美国陆军10月29日宣布选定洛克希德·马丁公司以其他交易协议研制\"未来拦截弹\"，项目总估值超10亿美元，由公司自筹4.23亿美元、陆军出资约6.6亿美元成本分摊推进。新拦截弹射程、高度、速度与机动性须全面超越现役系统，以应对高超声速武器、下一代弹道与巡航导弹及喷气攻击无人机。洛马以PAC-3\"增强型\"方案参与，计划2027年测试、2031年形成部署能力，并与\"综合战斗指挥系统\"（IBCS）等一体化防空反导体系集成。"
   },
   {
    "id": "ZB20261030-0541",
@@ -2060,22 +1313,6 @@
    "summary": "大西洋理事会网站UkraineAlert刊文称，乌克兰用FPV无人机与专用拦截机构建的无人机防空体系正在打破\"俄罗斯必胜\"论：2026年以来乌军已击落超过40万架各型俄罗斯无人机，约半数乌克兰军事科技公司在生产防空FPV或拦截机型。文章指出，因缺乏足够的常规战场防空系统，乌方被迫以廉价密集方案反制俄前沿杀伤链；无人机防空帮助乌军重获前线主动权、扩大杀伤区并削弱俄方进攻能力。作者为乌克兰国家战略研究所研究员别列斯科夫。"
   },
   {
-   "id": "ZB20261030-0514",
-   "title": "赫格塞思解除美参联会J5战略规划局主官职务",
-   "title_en": "Текучка в J5: Хегсет снял с должности главного военного планировщика Пентагона",
-   "link": "https://vpk.name/news/1168001_tekuchka_v_j5_hegset_snyal_s_dolzhnosti_glavnogo_voennogo_planirovshika_pentagona.html",
-   "date": "2026-10-29 21:00",
-   "source": "俄罗斯军工综合体网",
-   "country": "俄罗斯",
-   "topics": [
-    "指挥控制基础能力"
-   ],
-   "chains": [],
-   "score": 0,
-   "batch": "2026-10-30",
-   "summary": "俄罗斯军工综合体网转引《大西洋》月刊称，五角大楼负责人赫格塞思解除了陆军中将布雷特·西尔维亚的联合参谋部战略、规划与政策局（J5）局长职务，即五角大楼首席军事规划官；官方未说明原因，匿名消息称系\"失去信任\"且其与副部长科尔比有分歧。西尔维亚服役32年，曾任第101空降师师长；这是一年内第二位去职的J5局长（前任麦基于2025年10月退休）。赫格塞思主政以来已有至少26名将官离任或被解职；去职恰逢中央司令部就多套对伊朗行动方案向白宫汇报之际。"
-  },
-  {
    "id": "ZB20261030-0495",
    "title": "俄乌战第1709天俄喷气无人机袭第聂伯罗火车站致死14人",
    "title_en": "Russo-Ukrainian war, day 1709: Russian jet drone kills 14 on Dnipro railway platform beside a Zaporizhzhia-bound train",
@@ -2140,38 +1377,6 @@
    "summary": "欧洲亚得里亚防务网报道，欧盟委员会拒绝了爱沙尼亚、拉脱维亚、立陶宛三国联合提出的5亿欧元反无人机专项拨款请求，建议改用\"欧洲安全行动\"（SAFE）贷款工具；欧盟国防与太空事务委员10月28日向立陶宛国家广播电台LRT证实了该答复。三国国防部长9月下旬提交申请，拟建设集无人机探测、人工智能与拦截技术于一体的区域联合防空体系。10月29日欧委会开启SAFE第二轮融资，提供213亿欧元长期贷款，优先支持防空反导、无人机与反无人机技术等；立陶宛已获至多63.75亿欧元额度，爱沙尼亚约23.4亿欧元。SAFE为需偿还贷款而非直接赠款。"
   },
   {
-   "id": "ZB20261030-0448",
-   "title": "墨电视台主持人踢无人机误伤同台模特致其流血",
-   "title_en": "TV Host Boots Drone Into Model’s Face",
-   "link": "https://www.uasvision.com/2026/10/30/tv-host-boots-drone-into-models-face/",
-   "date": "2026-10-30 06:10",
-   "source": "英国无人机愿景网",
-   "country": "英国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-30",
-   "summary": "英国无人机愿景网转引报道称，墨西哥Multimedios电视台（6频道）直播综艺节目Es Show期间，主持人埃内斯托·查瓦纳因烦扰于在面前低空悬停的无人机而将其踢开，无人机径直撞上数英尺外模特伊莎贝拉·罗哈（绰号\"哥伦比亚女郎\"）的面部，致其嘴部受伤流血，随即被带离镜头接受紧急处理，稍后重返现场向观众表示无碍。查瓦纳当场道歉，承认对此事负责。该事件为演播室安全事故，与军事应用无关。"
-  },
-  {
-   "id": "ZB20261030-0447",
-   "title": "Rantizo发布远程固定翼监视无人机原型2027年商用",
-   "title_en": "Rantizo Unveils Prototype of Long-Range Fixed-Wing Surveillance Drone",
-   "link": "https://www.uasvision.com/2026/10/30/rantizo-unveils-prototype-of-long-range-fixed-wing-surveillance-drone/",
-   "date": "2026-10-30 06:20",
-   "source": "英国无人机愿景网",
-   "country": "英国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-30",
-   "summary": "英国无人机愿景网报道，美国无人机技术公司Rantizo发布新型远程固定翼监视无人机原型，拓展其空中情报、监视与侦察产品线。该机为紧凑型电动平台，目标航程130英里、最大速度75英里/小时、实用升限超1.2万英尺，翼展43.9英寸、机长45.4英寸，便携可快速部署，配相机与目标识别能力。应用场景包括边境安全、林业与野火管理、关键基础设施巡检、环境监测和公共安全。公司预计2027年中实现商用，目前正在推进测试与制造准备。"
-  },
-  {
    "id": "ZB20261030-0442",
    "title": "土耳其Aselsan营收45亿美元防空电子战领跑增长",
    "title_en": "Aselsan: constantly on the growth, with air defence and electronic warfare in the lead",
@@ -2188,22 +1393,6 @@
    "summary": "欧洲防务评论网报道，土耳其防务电子巨头Aselsan增长强劲：2025年营收45亿美元（增29%），出口客户增至97国，积压订单从2024年的130亿美元升至2026年的300亿美元。公司拥有约1.4万名员工（工程师超1万名），总部已迁至安卡拉戈尔巴希园区；Oğulbey新厂区2025年8月开建，竣工后将新增8000个岗位。防空与反无人机、电子战是两大龙头领域：35毫米\"科尔库特\"高炮需求旺盛、交付周期将缩至12个月内，公司自筹资金研制的25毫米型初期投入仅为35毫米型的十五分之一；其干扰机频段已扩展至8吉赫并实现\"反应式\"干扰，新推的Koral防空系统可干扰敌机有源相控阵雷达。公司还在建设土耳其最大算力中心搭建内部AI封闭网络。"
   },
   {
-   "id": "ZB20261030-0441",
-   "title": "法国DGA订购Aliaca垂直起降型无人机强化海上监视",
-   "title_en": "Airbus U010 Aliaca Drone Goes Vertical",
-   "link": "https://www.uasvision.com/2026/10/30/airbus-u010-aliaca-drone-goes-vertical/",
-   "date": "2026-10-30 06:50",
-   "source": "英国无人机愿景网",
-   "country": "英国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-30",
-   "summary": "英国无人机愿景网报道，法国武器装备总署在2024—2025年试验后，向空客直升机公司首批订购U010\"阿利亚卡\"无人机垂直起降型，以强化法国海军监视能力。法海军2019年起在近海巡逻舰上使用弹射起飞、网式回收的初期型，2022年起增购系统陆续装备近海巡逻舰、监视护卫舰和海外巡逻舰；每套含2架无人机和2人操作的地面站。该机最大起飞重25公斤、翼展3.6米，纯电动型续航3小时、数据链半径50公里，混动型续航6小时、半径100公里，已获欧盟航空安全局SORA方法SAIL III级认证，VTOL型将可部署于更小型舰艇。"
-  },
-  {
    "id": "ZB20261030-0433",
    "title": "俄S8000导弹无人机参与多城袭击乌方逾40人死伤",
    "title_en": "Russia uses S8000 Bandеrol missile-drone and jet-powered UAVs to strike Ukrainian cities",
@@ -2218,22 +1407,6 @@
    "score": 4,
    "batch": "2026-10-30",
    "summary": "欧洲防务技术网报道，10月29日俄军以喷气无人机、S8000\"班德罗拉\"导弹无人机、FPV无人机和火箭炮袭击第聂伯罗、切尔尼戈夫、克列缅丘克和扎波罗热。第聂伯罗火车站遭4架喷气无人机攻击，3架被拦截、1架击中站台，至少14人死亡、14人受伤；切尔尼戈夫市中心被S8000击中，两名15岁女孩死亡、至少23人受伤。S8000由俄Kronstadt公司研制，装中国产SW800Pro-A95涡喷发动机，巡航520—560公里/小时、航程达500公里。同日乌海军\"海王星\"导弹打击俄马里诺夫卡机场，确认摧毁2架苏-34战斗轰炸机。"
-  },
-  {
-   "id": "ZB20261030-0430",
-   "title": "英国宣布防务合同抵偿新政要求外企回馈全额工业收益",
-   "title_en": "UK government announces new offset policy for overseas defence contracts to support British industry",
-   "link": "https://defence-industry.eu/uk-government-announces-new-offset-policy-for-overseas-defence-contracts-to-support-british-industry/",
-   "date": "2026-10-30 08:38",
-   "source": "欧洲防务工业网",
-   "country": "欧洲",
-   "topics": [
-    "英军同类指控体系"
-   ],
-   "chains": [],
-   "score": 0,
-   "batch": "2026-10-30",
-   "summary": "欧洲防务工业网报道，英国政府10月30日宣布防务采购抵偿新政：2027年4月起，中标特定合同的海外企业须在英提供最高相当于合同全值的工业收益，5000万英镑以上合同逐案评估。企业可通过就业、建厂、投资英国供应商、技术转让和提高英制部件比例履约，由新设中央抵偿主管机构监督。国防大臣斯特里廷称\"投资的每一镑都要看为英国带来什么\"。该政策属\"购买英国货\"方针，服务于《防务工业战略》和4年2980亿英镑《防务投资计划》；2016/17至2025/26年度国防部对海外工业支出超352亿英镑。"
   },
   {
    "id": "ZB20261030-0429",
@@ -2300,22 +1473,6 @@
    "summary": "欧洲防务评论网报道，芬兰国防军创新单元与芬兰VR/XR企业Varjo 10月29日在赫尔辛基宣布合作，试点用虚拟技术提升士兵反无人机战备。项目采用Varjo XR-4系列混合现实头显，清晰度足以在真实距离上训练对抗5英寸FPV无人机，目前正与国防军一支旅级单位合作，双方筹备始于2026年2月。Varjo首席执行官托伊卡宁称无人机威胁是现代战场关键挑战，训练必须跟上变化；国防军创新单元负责人库帕里宁少校表示，虚拟技术可在不消耗真实资源的情况下反复逼真演练，为反无人机训练运用提供经验。"
   },
   {
-   "id": "ZB20261030-0416",
-   "title": "英国防部首设创新总监统辖37亿英镑科研组合",
-   "title_en": "MOD appoints first defence innovation director",
-   "link": "https://indefencemag.com/mod-appoints-first-defence-innovation-director/",
-   "date": "2026-10-30 09:36",
-   "source": "美国防务内情杂志网",
-   "country": "美国",
-   "topics": [
-    "英军同类指控体系"
-   ],
-   "chains": [],
-   "score": 0,
-   "batch": "2026-10-30",
-   "summary": "美国防务内情杂志网报道，英国国防部任命安东尼·里夫斯为首任创新总监，以三星高级文官身份领导新组建的\"国家军备创新\"体系，统辖国防科学技术实验室、英国防务创新局、国防投资局和防务无人系统中心4个机构约4800名科研人员。该组合4年预算37亿英镑，含16亿英镑专项创新经费与21亿英镑核心科技经费；里夫斯2026年秋到任，此前任德勤英国与北约数字防务业务负责人。国防部称此举旨在打通防务研究、技术评估、产业协作直至军事运用的链条。"
-  },
-  {
    "id": "ZB20261030-0400",
    "title": "朝鲜神风无人机仿以色列Hero击毁美坦克模型靶",
    "title_en": "North Korea shows kamikaze drone blowing up a mock U.S. Abrams tank",
@@ -2346,38 +1503,6 @@
    "score": 4,
    "batch": "2026-10-30",
    "summary": "欧洲防务技术网报道，朝鲜领导人金正恩在\"无人航空技术发展-2026\"展会上要求实现无人机技术\"绝对优越性\"，并把先进人工智能在武器系统的运用列为国家最优先事项之一。展会展示了自杀式攻击无人机、战术巡航导弹、多用途无人机和600毫米火箭炮，一款无尾飞翼无人机被分析人士视为隐身设计，演示中一架无人机撞上军用车辆爆炸。文章称，据韩国情报部门掌握，朝鲜自2024年10月以来已向俄罗斯派遣超过1.6万名士兵参战，使其部队获得无人机、电子战与合成作战经验。展会前一天，朝鲜发射约10枚投射物，含短程弹道导弹。"
-  },
-  {
-   "id": "ZB20261030-0397",
-   "title": "英自由民主党提案增建六艘护卫舰扩建四家船厂",
-   "title_en": "Royal Navy could gain six additional frigates under new proposal",
-   "link": "https://navaltoday.com/2026/10/30/royal-navy-could-gain-six-additional-frigates-under-new-proposal",
-   "date": "2026-10-30 10:24",
-   "source": "荷兰今日海军网",
-   "country": "荷兰",
-   "topics": [
-    "英军同类指控体系"
-   ],
-   "chains": [],
-   "score": 0,
-   "batch": "2026-10-30",
-   "summary": "荷兰今日海军网报道，英国自由民主党提议新建4家船厂，并为皇家海军增购6艘护卫舰（3艘26型、3艘31型），目标在2030年代中期建成。该党援引民调称60%受访者认为政府保护海底电缆等关键基础设施不力，并指皇家海军监视俄舰船时间比前两年增加25%；背景是议会防务委员会本周呼吁加快强化武装力量。该党批评政府《国防投资计划》资源不足，主张发行\"防务债券\"融资。注：此为反对党提案，非政府既定规划。"
-  },
-  {
-   "id": "ZB20261030-0394",
-   "title": "新加坡在澳演习中检验车载移动式反无人机系统",
-   "title_en": "Singapore evaluates mobile C-UAS in Australia",
-   "link": "https://www.unmannedairspace.info/counter-uas-systems-and-policies/singapore-evaluates-mobile-c-uas-in-australia/",
-   "date": "2026-10-30 10:28",
-   "source": "英国无人空域网",
-   "country": "英国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-30",
-   "summary": "英国无人空域网报道，新加坡武装部队与国防科技局正在澳大利亚\"2026袋熊演习\"（持续至11月2日）中评估一套移动式反无人机系统。该系统由无人机探测传感器与对抗设备组成，可在车辆行驶中实施探测与干扰，算法能区分敌方无人机与鸟类、有人机等目标，通过干扰无人机与操控者的通信链路迫其降落。国防科技局技术开发主管何清池接受《海峡时报》采访时坦言，演习反馈显示系统并非总能及时提供所需探测，地形也偶会造成操作问题，相关信息将用于改进新军的反无人机能力；演习中新军还以AH-64D直升机担负针对大型无人机的防空任务。"
   },
   {
    "id": "ZB20261030-0389",
@@ -2412,22 +1537,6 @@
    "summary": "欧洲防务工业网报道，乌克兰国防部称，自2026年初至10月25日，乌军无人机共摧毁或瘫痪1039艘俄罗斯军用船只，打击均录入了DELTA作战系统视频并经Brave1国防创新集群核实，以破坏俄方控制水域、运送人员装备和补给部队的行动。其中7月战果最高达236艘，接近总数的四分之一；3月为155艘、8月118艘、9月106艘；10月前25天又记录67艘。该统计将\"摧毁\"与\"失去行动能力\"的船只合并计算。"
   },
   {
-   "id": "ZB20261030-0387",
-   "title": "Matternet联手Swisslog把无人机配送引入美国医院",
-   "title_en": "Matternet and Swisslog to bring drone delivery services to US hospitals",
-   "link": "https://www.unmannedairspace.info/uncategorized/matternet-and-swisslog-to-bring-drone-delivery-services-to-us-hospitals/",
-   "date": "2026-10-30 10:49",
-   "source": "英国无人空域网",
-   "country": "英国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-30",
-   "summary": "英国无人空域网报道，美国无人机物流商Matternet与瑞士Swisslog Healthcare旗下TransLogic合作，打造结合无人机运输与医院气动物流传输网的自动化配送网络：检验样本可由无人机从偏远诊所运至中心实验室，再经气动物流管送达院内目的地。合作首年将在加利福尼亚、佛罗里达和亚利桑那三州的医院系统落地，采用Matternet的M3无人机平台——载重11磅、服务半径10英里、自主运行，停靠站可安装于医院楼顶。TransLogic全球3000余家医院（北美逾2300家）的客户网络将作为M3系统的销售渠道。"
-  },
-  {
    "id": "ZB20261030-0381",
    "title": "美智库报告称非洲安全部队亟须补齐反无人机短板",
    "title_en": "African security forces in need of C-UAS capabilities, strategic report says",
@@ -2458,40 +1567,6 @@
    "score": 4,
    "batch": "2026-10-30",
    "summary": "据乌克兰欧洲广场新闻网报道，俄军无人机袭击了别连克村一辆社会巴士，造成一名女性死亡、多名乘客受伤；该村仍有1600多人居住，这辆巴士是该村唯一的交通工具。（题录级，待补全文核对）"
-  },
-  {
-   "id": "ZB20261030-0379",
-   "title": "以色列ParaZero推出撒网式TillOnAIR反无人机系统",
-   "title_en": "ParaZero’s new TillOnAIR system intercepts hostile drones with a net",
-   "link": "https://defence.tech/parazeros-new-tillonair-system-intercepts-hostile-drones-with-a-net/",
-   "date": "2026-10-30 11:14",
-   "source": "欧洲防务技术网",
-   "country": "欧洲",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-30",
-   "summary": "以色列ParaZero公司推出TillOnAIR自主反无人机系统：拦截无人机从上方接近目标并撒出物理网捕获敌方无人机，随后自行返回发射点，仅需更换网舱即可再次使用。系统由地面单元探测、跟踪并引导，拦截机无需GPS、机载相机或寻的导引头，全流程自主完成，不使用炸药。整套系统重约15公斤、20分钟可部署，为半径50—100米内目标提供360度防护，单个地面单元可同时协调多架拦截器，可对付预编程、光纤制导等抗干扰无人机。系统已上市，11月将在以色列及特拉维夫UVID DroneTech展演示。"
-  },
-  {
-   "id": "ZB20261030-0373",
-   "title": "美陆军军官倡建美式方阵实现步兵无人机深度整合",
-   "title_en": "American Tercio: A Vision for Infantry Drone Integration",
-   "link": "https://mwi.westpoint.edu/american-tercio-a-vision-for-infantry-drone-integration/",
-   "date": "2026-10-30 11:21",
-   "source": "美国西点军校现代战争研究所网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [
-    "③集成与互操作"
-   ],
-   "score": 6,
-   "batch": "2026-10-30",
-   "summary": "美国西点军校现代战争研究所网站刊文，作者安东尼奥·萨利纳斯（现役陆军军官、国防大学战略情报教授）借用16世纪西班牙\"方阵\"将火绳枪与长矛整合的史实，主张以同样思路建设\"美式方阵\"：不为无人机另建新军，而是把无人机嵌入现有步兵编制。他建议步兵排第三个步枪班交叉训练一个火力组兼负无人机操作（强调\"先为步兵\"），围绕直接攻击、指挥控制、观察与火力呼唤、反无人机四大功能运用；连部保留4名、营部编10名无人机操作员形成可集中使用的力量。文章称俄乌冲突中无人机造成了70%—80%的伤亡，主张在印太群岛战场以此增强\"拒止威慑\"。"
   },
   {
    "id": "ZB20261030-0368",
@@ -2526,22 +1601,6 @@
    "summary": "欧洲防务技术网报道，芬兰国防军与本国企业Varjo合作试点混合现实反无人机训练：士兵佩戴XR-4系列头显，在真实训练场中探测并应对虚拟无人机，重点针对FPV无人机与巡飞弹威胁。试点由国防军创新单元牵头、与一支旅级单位合作，筹备始于2026年2月，但未公布参训单位、头显数量与项目周期。Varjo头显已被欧洲多国军机与战车模拟器采用，今年3月该公司向乌克兰交付39套XR训练系统用于\"豹\"2A4坦克车组训练，6月又为乌军训练系统增设反无人机模拟器。"
   },
   {
-   "id": "ZB20261030-0352",
-   "title": "Saildrone欧洲公司招兵买马布局德国与东欧市场",
-   "title_en": "Saildrone Europe Hiring Business Development Director for Germany and Eastern Europe",
-   "link": "https://www.adriadefense.com/saildrone-europe-hiring-business-development-director-for-germany-and-eastern-europe/",
-   "date": "2026-10-30 11:58",
-   "source": "欧洲亚得里亚防务网",
-   "country": "欧洲",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-30",
-   "summary": "美国海上自主企业Saildrone的欧洲分公司正招聘防务与海事安全销售业务总监（驻丹麦哥本哈根），牵头开拓德国市场并兼顾东欧战略机会，要求应聘者具备8年以上防务销售经验和德国安全审查资格。此举配合该公司扩张哥本哈根欧洲总部、并计划在荷兰、挪威、波兰建立制造业务的布局；10月26日该公司还宣布与瑞典合作，派出4艘\"旅行者\"无人水面艇在波罗的海执行为期一年的海上监视任务。"
-  },
-  {
    "id": "ZB20261030-0342",
    "title": "美德军试验集装箱式RD-SUADS反无人机系统",
    "title_en": "U.S. troops put RD-SUADS mobile electronic warfare system through trials in Germany",
@@ -2558,22 +1617,6 @@
    "score": 6,
    "batch": "2026-10-30",
    "summary": "欧洲防务技术网报道，美军陆军、空军与海军陆战队人员近日在德国格拉芬沃尔训练场试验RD-SUADS集装箱式反无人机系统，作为联合反无人机操作员课程的一部分。该系统由美国Trust Automation公司研制，用于保护作战区军事设施与指挥所：集装箱尺寸170×274×229厘米，兼容463L航空托盘，可由运输机空投；自带柴油发电机支持连续4天自主运行，桅杆上4面雷达板提供360度覆盖，并配光电相机与对抗天线。公司还开发了固定站点型FS-SUADS。"
-  },
-  {
-   "id": "ZB20261030-0337",
-   "title": "欧盟选定拉脱维亚荷兰建首批无人机技术中心",
-   "title_en": "European UAS and C-UAS tech development hubs to be located in Latvia and Netherlands",
-   "link": "https://www.unmannedairspace.info/counter-uas-systems-and-policies/european-uas-and-c-uas-tech-development-hubs-to-be-located-in-latvia-and-netherlands/",
-   "date": "2026-10-30 12:14",
-   "source": "英国无人空域网",
-   "country": "英国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-30",
-   "summary": "欧盟委员会负责经济、生产力和国防工业的委员东布罗夫斯基斯10月30日在北约FUSE防务技术演示活动上宣布，欧洲首批两个无人机技术中心将于2027年设立：一个位于拉脱维亚塞洛尼亚军事训练区（该地已设有北约无人机与反无人机创新试验场），侧重陆地与空中无人机及反无人机技术；另一个位于荷兰斯海弗宁恩，侧重海军能力、海底安全与港口及关键水下基础设施防护。他还介绍\"无人机与反无人机欧洲决心\"（DECODER）项目将获欧洲防务工业计划资金支持，以弥合关键能力缺口。"
   },
   {
    "id": "ZB20261030-0331",
@@ -2608,73 +1651,6 @@
    "summary": "乌克兰第1021防空导弹与炮兵旅10月26日公布视频，展示\"天空哨兵\"机器人防空炮塔的车载版本：炮塔安装于HAMMER型车辆尾部，车内设操作员站，可打击\"沙赫德\"攻击无人机等低空目标。该系统由乌方自研，融合自动瞄准、计算机视觉与人工智能，能借雷达数据自动探测跟踪目标、解算提前量并计入风速；现构型配12.7毫米重机枪，可360度旋转、打击时速800公里目标，但射程受机枪限制，主要用于设施近程防护，车载化使其可在阵地间机动转移。"
   },
   {
-   "id": "ZB20261030-0323",
-   "title": "科学家首次观测量子自由落体为引力量子化奠基",
-   "title_en": "Free Fall May Bridge Quantum and Classical Physics",
-   "link": "https://www.popularmechanics.com/science/a74263515/quantum-atom-gravity-free-fall/",
-   "date": "2026-10-30 12:30",
-   "source": "美国大众机械网",
-   "country": "美国",
-   "topics": [
-    "法军同类指控体系"
-   ],
-   "chains": [
-    "①指控系统本体"
-   ],
-   "score": 6,
-   "batch": "2026-10-30",
-   "summary": "美国大众机械网报道，一支包含95岁诺贝尔物理学奖得主罗杰·彭罗斯的团队在《自然》杂志发文，用新型冷原子干涉装置首次观测到\"量子自由落体\"：借助光镊固定铷原子云中的单个原子，使其中一个原子在纳米尺度自由落体并测量其相位。实验确认了自由落体相位与重力加速度成正比，被视为连接量子力学与广义相对论的重要一步，但作者坦言这仅是长期研究的起点。"
-  },
-  {
-   "id": "ZB20261030-0318",
-   "title": "美海军邀企业用超级智能设计SSN(X)潜艇总体布置",
-   "title_en": "U.S. Navy seeks “super intelligence” for future SSN(X) attack submarine",
-   "link": "https://defence-blog.com/u-s-navy-seeks-super-intelligence-for-future-ssnx-attack-submarine/",
-   "date": "2026-10-30 12:38",
-   "source": "美国防务博客网",
-   "country": "美国",
-   "topics": [
-    "超越计划美海军",
-    "人工智能军事应用"
-   ],
-   "chains": [],
-   "score": 0,
-   "batch": "2026-10-30",
-   "summary": "美国防务博客网报道，美海军SSN(X)下一代攻击核潜艇项目办公室10月30日发出预征集通知，邀企业登记兴趣（11月6日截止），拟以\"超级智能\"（SI，海军10月起取代\"人工智能\"的官方术语）工具设计艇内系统布置，正式征集最快下周启动，采用其他交易授权。方案须快速探索反应堆、推进、武器、传感器与住舱布局并校验全艇静水平衡。国会预算办公室2025年1月估算该艇均价87亿美元（2024财年币值）；海军2026财年申请研发费6.228亿美元，2027财年请求额降至约3.15亿美元。"
-  },
-  {
-   "id": "ZB20261030-0316",
-   "title": "荷兰空管招标无人机交通管理系统初始期约十年",
-   "title_en": "Netherlands issues tender for UTM drone flight planning tool",
-   "link": "https://www.unmannedairspace.info/uncategorized/netherlands-issues-tender-for-utm-drone-flight-planning-tool/",
-   "date": "2026-10-30 12:40",
-   "source": "英国无人空域网",
-   "country": "英国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-30",
-   "summary": "荷兰空中交通管理局（ATC-NL）发布招标，寻求一套无人机交通管理（UTM）解决方案，以支持需要协调、审批的空域中无人机的安全高效运行，初始范围涵盖无人机作业规划、评估、授权与运行协调，并预留功能扩展空间。项目预计2027年5月底启动，初始合同期约10年，含软件许可、实施配置、培训与维护等服务，截标日期为2026年12月15日。"
-  },
-  {
-   "id": "ZB20261030-0314",
-   "title": "美陆军征购数字中频系统升级全球20处卫星地面站",
-   "title_en": "Army releases CPE C2IN CSO",
-   "link": "https://intelligencecommunitynews.com/army-releases-cpe-c2in-cso/?utm_source=rss&utm_medium=rss&utm_campaign=army-releases-cpe-c2in-cso",
-   "date": "2026-10-30 12:42",
-   "source": "美国情报社区新闻网",
-   "country": "美国",
-   "topics": [
-    "指挥控制基础能力"
-   ],
-   "chains": [],
-   "score": 0,
-   "batch": "2026-10-30",
-   "summary": "美国情报社区新闻网报道，美国陆军10月29日发布指挥控制信息网络能力项目执行办公室（CPE C2IN）商业方案征集：宽带企业卫星系统产品管理办公室（PdM WESS）寻求商用现货数字中频系统，用于现代化 Increment 1 项目，将部署至全球多达20个卫星通信地面站。现行L波段模拟中频架构限制可扩展性、韧性与互操作性；中选方案须基于开放标准模块化架构，建立全作战能力基线。应答截止12月10日。"
-  },
-  {
    "id": "ZB20261030-0276",
    "title": "芬兰国防军携手Varjo以混合现实开展反无人机训练",
    "title_en": "Varjo develops virtual C-UAS training systems with Finnish Defence Forces",
@@ -2705,22 +1681,6 @@
    "score": 4,
    "batch": "2026-10-30",
    "summary": "乌克兰总统国防技术顾问别斯克列斯特诺夫称，俄罗斯\"天竺葵-5\"喷气无人机机动时速已达1000公里（乌军事情报测定其巡航速度450—600公里/小时），中国工程师参与俄方\"天竺葵\"系列研发，俄阿拉布加无人机工厂向其布置控制模块等任务。他透露9月1日至26日乌防空仅击落55%的俄喷气无人机；10月29日一架喷气无人机击中第聂伯罗火车站，死亡人数已升至15人。美国CHAOS工业公司极速540公里/小时的\"维斯皮德\"拦截无人机被认为可用于应对。"
-  },
-  {
-   "id": "ZB20261030-0274",
-   "title": "朝鲜首届无人机展亮30余种机型金正恩吁绝对领先",
-   "title_en": "North Korea Showcases Over 30 UAVs at First Dedicated Drone Exhibition; Kim Jong Un Calls for “Absolute Superiority”",
-   "link": "https://www.thedefensenews.com/North-Korea-Showcases-Over-30-UAVs-at-First-Dedicated-Drone-Exhibition-Kim-Jong-Un-Calls-for-Absolute-Superiority/",
-   "date": "2026-10-30 13:38",
-   "source": "美国防务新闻资讯网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-30",
-   "summary": "朝鲜10月29日在平壤举办首届无人机专题展\"无人航空技术发展-2026\"，展出30多种无人系统，包括战略战术多用途无人机、巡飞弹、自杀式攻击无人机和FPV四旋翼机。金正恩携夫人李雪主出席，要求实现无人机技术\"绝对优越性\"，并要求以人工智能承担原先由人执行的决策任务。展会配套火力演示中，一个营的600毫米火箭炮首次公开实弹射击；同日韩国军方探测到约10枚从元山地区发射的短程投射物。"
   },
   {
    "id": "ZB20261030-0267",
@@ -2789,22 +1749,6 @@
    "summary": "法国海军一架\"大西洋\"2海上巡逻机10月28日在保加利亚专属经济区发现3艘海上无人艇扑向集装箱船\"康特船喷气机\"号，提前发出警报并协调救援，船上18名船员（14名菲律宾人、4名乌克兰人）全部获救，货船次日在卡利阿克拉角以东16海里处沉没。无人艇航速约26节，保加利亚海军表示无力拦截；这是保加利亚专属经济区本月第5起无人艇袭击，保、罗、土三国国防部长已商定加强黑海情报共享与预警协调。"
   },
   {
-   "id": "ZB20261030-0217",
-   "title": "澳英美为水下无人机制备三种新载荷2027年列装",
-   "title_en": "UK to Develop Three Underwater Drone Payloads Under AUKUS",
-   "link": "https://thedefensepost.com/2026/10/30/uk-underwater-drone-aukus/",
-   "date": "2026-10-30 14:20",
-   "source": "美国防务邮报网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-30",
-   "summary": "美国防务邮报网报道，澳大利亚、英国、美国将在\"澳英美联盟\"（AUKUS）第二支柱框架下为水下无人航行器开发三种载荷，用于海底测绘、探测潜艇威胁和产生非动能水下效应，2027年起装备三国水下机队，这是该联盟5月宣布的首个标志性项目。三国近期还在圣迭戈举行\"海上大演练-太平洋\"试验，英方出动13艘无人水面艇和4个水下滑翔机；英国SEA等两家公司获300万英镑（约400万美元）研发水下平台指挥控制与协调系统。"
-  },
-  {
    "id": "ZB20261030-0215",
    "title": "五角大楼谋划伪装诱饵与地下设施防御无人机袭基地",
    "title_en": "Pentagon Plans Camouflage, Decoys and Underground Facilities to Protect Bases From Drones",
@@ -2869,24 +1813,6 @@
    "summary": "俄罗斯RT网站调查称，拉脱维亚里加近郊已形成面向乌克兰的无人机生产集群，8家有外资背景的工厂2022至2025年营收合计约2.83亿欧元，其中美国Redwire Defense Tech Riga占1.314亿欧元；拉脱维亚2024年倡议成立的援乌无人机联盟承诺集资6亿欧元，已交付超10万架无人机。报道点名\"企鹅\"无人机制造商2026年3月并入美国Redwire并更名，以色列资本的Atlas Aerospace月产逾300架侦察无人机。"
   },
   {
-   "id": "ZB20261030-0191",
-   "title": "加拿大验证一指挥官统管多机自主搜救新机制",
-   "title_en": "Ribbit, Canadian Researchers Test Autonomous Aircraft in Rescue Exercise",
-   "link": "https://thedefensepost.com/2026/10/30/ribbit-canada-autonomous-aircraft/",
-   "date": "2026-10-30 14:41",
-   "source": "美国防务邮报网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [
-    "⑤演习实验链路验证"
-   ],
-   "score": 6,
-   "batch": "2026-10-30",
-   "summary": "加拿大Ribbit公司与国家研究委员会在渥太华附近举行搜救演习，一架塞斯纳150固定翼机与一架贝尔412EP直升机在单一任务指挥官统一指挥下自主协同执行搜救，模拟无人机同步加入。目标定位后由直升机执行撤离、固定翼机留空监视，两机均配有安全飞行员。双方合作已逾3年，技术可用于公共安全与战术航空等军民场景；萨博另与加防务投资局就6架\"全球眼\"预警机开启采购谈判。"
-  },
-  {
    "id": "ZB20261030-0188",
    "title": "土耳其蜂群无人机亮相卡塔尔推国防工业麦加公约谋升级",
    "title_en": "Qatar’s domestic weapons, Turkey’s drone arsenal and the Mecca pact’s next test",
@@ -2901,38 +1827,6 @@
    "score": 4,
    "batch": "2026-10-30",
    "summary": "美国防务快讯网站中东防务摘要称，土耳其近期展示了蜂群化单向攻击无人机，卡塔尔正扩展本国国防工业，推出新无人平台并增强防空能力；土耳其、卡塔尔、巴基斯坦与印尼还达成一项防务工业合作协议。RANE网络全球安全分析师称，\"麦加公约\"正从传统军事联盟演变为集体防御与预防地区升级的外交接触相结合，巴基斯坦与土耳其可借此增强沙特防御胡塞袭击的能力。"
-  },
-  {
-   "id": "ZB20261030-0183",
-   "title": "美2026财年军事情报预算309亿美元创近年新高",
-   "title_en": "DOD reveals FY-26 military intelligence budget increase",
-   "link": "https://insidedefense.com/insider/dod-reveals-fy-26-military-intelligence-budget-increase",
-   "date": "2026-10-30 14:49",
-   "source": "美国防务内情网",
-   "country": "美国",
-   "topics": [
-    "指挥控制基础能力"
-   ],
-   "chains": [],
-   "score": 0,
-   "batch": "2026-10-30",
-   "summary": "美国防务内情网报道，美国国防部10月30日公布，2026财年军事情报计划（MIP）预算获国会拨款309亿美元，高于2025财年的278亿美元，接近2024财年的298亿美元水平；国防部称该总额与《国防战略》保持一致。与往年一样，MIP预算除顶层数字外的细节均为保密内容。"
-  },
-  {
-   "id": "ZB20261030-0164",
-   "title": "朝鲜首次公开飞翼式无人机或借鉴西方隐身设计",
-   "title_en": "North Korea Unveils Flying-Wing UAV at Unmanned Aeronautical Technology Development-2026 Exhibition",
-   "link": "https://www.thedefensenews.com/North-Korea-Unveils-Flying-Wing-UAV-at-Unmanned-Aeronautical-Technology-Development-2026-Exhibition/",
-   "date": "2026-10-30 15:15",
-   "source": "美国防务新闻资讯网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-30",
-   "summary": "朝鲜在10月29日开幕的\"无人航空技术发展-2026\"展上首次公开展示一款飞翼式无人机，朝中社10月30日发布图片。该机采用三角轮廓、融合翼身、无垂尾和背部进气设计，外形接近欧洲\"神经元\"和美国B-2，但朝方未公布技术参数与研制状态，亦无法确认是否已飞行。金正恩携女儿金主爱出席，要求加快发展国防无人航空与人工智能技术。"
   },
   {
    "id": "ZB20261030-0150",
@@ -2997,22 +1891,6 @@
    "score": 4,
    "batch": "2026-10-30",
    "summary": "美陆军与空军在德国联合开展反无人机训练，使用可快速部署的小型无人机防御系统（SUADS），检验跨军种协同反无作战能力。"
-  },
-  {
-   "id": "ZB20261030-0117",
-   "title": "惯性导航或成地面机器人蜂群实战化关键",
-   "title_en": "Can inertial navigation make ground-robot swarms real?",
-   "link": "https://www.defenseone.com/defense-systems/2026/10/inertial-navigation-ground-robot-swarms/416914/?oref=d1-featured-river-secondary",
-   "date": "2026-10-29 17:30",
-   "source": "美国防务一号网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-30",
-   "summary": "美国防务一号网探讨惯性导航技术对地面机器人蜂群的支撑作用：在GPS拒止环境下，自主定位能力是蜂群走向实战部署的前提。"
   },
   {
    "id": "ZB20261030-0106",
@@ -3125,22 +2003,6 @@
    "score": 4,
    "batch": "2026-10-30",
    "summary": "澳大利亚一款加装霰弹枪的自杀式无人机获准列入五角大楼采购清单，意味着该机可按简化程序向美军销售列装。"
-  },
-  {
-   "id": "ZB20261030-0018",
-   "title": "法国Elistair公司以系留供电方案破解小型无人机续航瓶颈",
-   "title_en": "Elistair Gives Micro-Drones a Way Around Short Flight Times",
-   "link": "https://thedefensepost.com/2026/10/30/elistair-drones-short-flight-times/",
-   "date": "2026-10-30 12:43",
-   "source": "美国防务邮报网",
-   "country": "美国",
-   "topics": [
-    "无人自主系统"
-   ],
-   "chains": [],
-   "score": 4,
-   "batch": "2026-10-30",
-   "summary": "法国Elistair公司推出面向微型无人机的系留供电方案，通过地面持续供电绕开小型无人机飞行时间短的制约，延长其滞空作业时长。"
   }
  ],
  "products": {
