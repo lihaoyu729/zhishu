@@ -148,8 +148,8 @@
       <h2>主题分布<span class="note">点击行跳到对应条目</span></h2>
       <div id="bars"></div>
       <div class="legend">
-        <span><i class="l1"></i>美军主线</span>
-        <span><i class="l2"></i>俄英法德对照线</span>
+        <span><i class="l1"></i>美军 CJADC2 及军种项目</span>
+        <span><i class="l2"></i>俄英法德同类体系（按项目命名）</span>
         <span><i class="l3"></i>前沿技术与指控基础</span>
       </div>
     </div>
@@ -184,7 +184,7 @@
 
 <script id="zz-data" type="application/json">
 {
- "generated_at": "2026-10-31 16:30 UTC",
+ "generated_at": "2026-10-31 16:37 UTC",
  "last_fetch": "2026-10-30 13:29:36",
  "today": "2026-10-31",
  "stats": {
@@ -197,7 +197,7 @@
   {
    "name": "JADC2联合全域指控",
    "count": 0,
-   "note": "长期主线·美军联合层"
+   "note": "美军主线·CJADC2 联合全域指控及直接关联的军种级战略、计划、项目、系统装备"
   },
   {
    "name": "ABMS美空军作战管理",
@@ -217,22 +217,22 @@
   {
    "name": "俄军同类指控体系",
    "count": 0,
-   "note": "对照线·俄（公开信息少，需甄别可信度）"
+   "note": "俄罗斯 ESU TZ 统一战术级指挥控制系统"
   },
   {
    "name": "英军同类指控体系",
    "count": 0,
-   "note": "对照线·英"
+   "note": "英国 ASGARD 项目与数字化目标网（Digital Targeting Web）"
   },
   {
    "name": "法军同类指控体系",
    "count": 0,
-   "note": "对照线·法（SCORPION 协同作战）"
+   "note": "法国 SCORPION 协同作战体系（SICS 战斗信息系统）"
   },
   {
    "name": "德军同类指控体系",
    "count": 0,
-   "note": "对照线·德"
+   "note": "德国 D-LBO 数字化陆基作战与 Gladius 士兵系统"
   },
   {
    "name": "人工智能军事应用",
@@ -2155,12 +2155,13 @@
                 'NGC2美陆军下一代指控': 'main', '超越计划美海军': 'main',
                 '俄军同类指控体系': 'g-peer', '英军同类指控体系': 'g-peer',
                 '法军同类指控体系': 'g-peer', '德军同类指控体系': 'g-peer' };
-  var NAMES = { 'JADC2联合全域指控': 'JADC2 联合全域', 'ABMS美空军作战管理': 'ABMS 空军',
+  var NAMES = { 'JADC2联合全域指控': 'CJADC2 联合全域指控', 'ABMS美空军作战管理': 'ABMS 空军',
     'NGC2美陆军下一代指控': 'NGC2 陆军', '超越计划美海军': '超越计划 海军',
-    '俄军同类指控体系': '俄军同类体系', '英军同类指控体系': '英军同类体系',
-    '法军同类指控体系': '法军同类体系', '德军同类指控体系': '德军同类体系',
+    '俄军同类指控体系': '俄 ESU TZ 统一战术指控', '英军同类指控体系': '英 ASGARD 数字化目标网',
+    '法军同类指控体系': '法 SCORPION 协同体系', '德军同类指控体系': '德 D-LBO 数字化陆基作战',
     '人工智能军事应用': '人工智能', '无人自主系统': '无人自主', '指挥控制基础能力': '指控基础能力' };
-  var state = { tab: 'overview', topic: '__today__' };
+  var state = { tab: 'overview', topic: '__today__', catFilter: null };
+  var CAT_NAMES = { news: '动态类信息', official: '官方文件类', thinktank: '智库报告类' };
 
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
@@ -2169,6 +2170,7 @@
   function countOf(key) {
     if (key === '__today__')
       return D.items.filter(function (i) { return i.batch === D.today && i.topics.length; }).length;
+    if (key === '__allhits__') return D.items.length;
     return D.items.filter(function (i) { return i.topics.indexOf(key) >= 0; }).length;
   }
   function cardHtml(i) {
@@ -2206,13 +2208,21 @@
     else cats.news++;
   });
   var stats = document.getElementById('stats');
-  [['主题命中（累计）', D.items.filter(function (i) { return i.topics.length; }).length, true],
-   ['动态类信息', cats.news, false], ['官方文件类', cats.official, false],
-   ['智库报告类', cats.thinktank, false]]
+  [['主题命中（累计）', D.items.filter(function (i) { return i.topics.length; }).length, true, null],
+   ['动态类信息', cats.news, false, 'news'], ['官方文件类', cats.official, false, 'official'],
+   ['智库报告类', cats.thinktank, false, 'thinktank']]
     .forEach(function (kv) {
       var el = document.createElement('div');
       el.className = 'stat' + (kv[2] ? ' hot' : '');
+      el.style.cursor = 'pointer';
+      el.title = kv[3] ? '点击筛选 ' + kv[0] : '点击查看全部主题命中';
       el.innerHTML = '<div class="v">' + kv[1] + '</div><div class="k">' + kv[0] + '</div>';
+      el.onclick = function () {
+        state.catFilter = kv[3];
+        state.topic = kv[3] ? '__allhits__' : '__allhits__';
+        document.querySelector('.tab[data-v="items"]').click();
+        renderChips(); renderAll();
+      };
       stats.appendChild(el);
     });
 
@@ -2244,7 +2254,7 @@
   function renderChips() {
     var chips = document.getElementById('chips');
     chips.innerHTML = '';
-    [{ key: '__today__', name: '今日命中' }]
+    [{ key: '__today__', name: '今日命中' }, { key: '__allhits__', name: '全部命中' }]
       .concat(D.topics.filter(function (t) { return t.count > 0; })
                       .map(function (t) { return { key: t.name, name: NAMES[t.name] || t.name }; }))
       .forEach(function (t) {
@@ -2254,14 +2264,34 @@
         b.onclick = function () { state.topic = t.key; renderChips(); renderAll(); };
         chips.appendChild(b);
       });
+    // 类型筛选指示（与顶部统计卡联动）
+    if (state.catFilter) {
+      var bar = document.createElement('span');
+      bar.style.cssText = 'font-size:13px;color:#007aff;padding:8px 4px';
+      bar.innerHTML = '类型：' + CAT_NAMES[state.catFilter] +
+        ' <a href="javascript:void(0)" id="clearCat" style="margin-left:8px;text-decoration:underline">清除</a>';
+      chips.appendChild(bar);
+      bar.querySelector('#clearCat').onclick = function () {
+        state.catFilter = null; renderChips(); renderAll(); };
+    }
   }
   function renderAll() {
     var rows;
     if (state.topic === '__today__') rows = todayRows;
+    else if (state.topic === '__allhits__') rows = D.items.slice().reverse();
     else rows = D.items.filter(function (i) { return i.topics.indexOf(state.topic) >= 0; }).slice().reverse();
+    if (state.catFilter) {
+      rows = rows.filter(function (i) {
+        var c = i.cat || '';
+        if (state.catFilter === 'thinktank') return c === '智库/研究机构';
+        if (state.catFilter === 'official')
+          return ['政府/军方官网', '文档库/出版物', '协会/组织', '活动/会议', '国际组织'].indexOf(c) >= 0;
+        return ['政府/军方官网', '文档库/出版物', '协会/组织', '活动/会议', '国际组织', '智库/研究机构'].indexOf(c) < 0;
+      });
+    }
     document.getElementById('allCards').innerHTML =
       rows.map(cardHtml).join('') ||
-      '<div class="empty">该主题暂无条目，随每日抓取自动积累</div>';
+      '<div class="empty">该视图暂无条目，调整筛选条件看看</div>';
   }
 
   /* 产品框架：五层情报产品 */
