@@ -175,7 +175,7 @@
 
 <script id="zz-data" type="application/json">
 {
- "generated_at": "2026-10-31 15:13 UTC",
+ "generated_at": "2026-10-31 15:22 UTC",
  "last_fetch": "2026-10-30 13:29:36",
  "today": "2026-10-31",
  "stats": {
@@ -3208,8 +3208,8 @@
   });
 
   var stats = document.getElementById('stats');
-  [['累计条目', D.stats.total, false], ['今日新入库', D.stats.today_new, false],
-   ['今日主题命中', D.stats.today_tagged, true], ['连续跟踪天数', D.stats.days, false]]
+  [['累计条目（含未命中）', D.stats.total, false], ['主题命中（累计）', D.items.filter(function (i) { return i.topics.length; }).length, false],
+   ['今日新入库（首批回补）', D.stats.today_new, false], ['今日主题命中', D.stats.today_tagged, true]]
     .forEach(function (kv) {
       var el = document.createElement('div');
       el.className = 'stat' + (kv[2] ? ' hot' : '');
