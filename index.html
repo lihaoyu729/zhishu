@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>智枢 · 综合情报研究平台</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body { font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+         background: #eef0f4; color: #1d1d1f;
+         display: flex; flex-direction: column; }
+  header { display: flex; align-items: center; gap: 16px;
+           padding: 20px 32px 16px; background: #fff;
+           border-bottom: 1px solid #e2e4e9; flex: none; }
+  .logo { width: 52px; height: 52px; flex: none; }
+  .brand h1 { margin: 0; font-size: 34px; font-weight: 700; letter-spacing: 4px; line-height: 1.1; }
+  .brand .sub { margin-top: 4px; font-size: 15px; color: #6e6e73; letter-spacing: 1px; }
+  header .meta { margin-left: auto; text-align: right; font-size: 12px;
+                 color: #86868b; line-height: 1.7; }
+  nav.tabs { display: flex; gap: 4px; padding: 0 32px; background: #fff;
+             border-bottom: 1px solid #e2e4e9; flex: none; }
+  .tab { border: 0; background: none; padding: 13px 22px; font-size: 15px;
+         color: #6e6e73; cursor: pointer; position: relative; }
+  .tab:hover { color: #1d1d1f; }
+  .tab.sel { color: #007aff; font-weight: 600; }
+  .tab.sel::after { content: ""; position: absolute; left: 16px; right: 16px; bottom: -1px;
+                    height: 3px; border-radius: 2px; background: #007aff; }
+  main { flex: 1; overflow-y: auto; padding: 24px 32px 32px; }
+  .view { display: none; }
+  .view.on { display: block; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .stat { background: #fff; border-radius: 14px; padding: 20px 22px;
+          box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+  .stat .v { font-size: 36px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .stat .k { font-size: 13px; color: #6e6e73; margin-top: 6px; }
+  .stat.hot .v { color: #007aff; }
+  .panel { background: #fff; border-radius: 14px; padding: 20px 22px;
+           box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-top: 20px; }
+  .panel h2 { margin: 0 0 14px; font-size: 18px; font-weight: 600; }
+  .panel h2 .note { font-size: 12px; font-weight: 400; color: #86868b; margin-left: 10px; }
+  .bar-row { display: grid; grid-template-columns: 190px 1fr 46px; align-items: center;
+             gap: 14px; padding: 5px 4px; border-radius: 8px; cursor: pointer; }
+  .bar-row:hover { background: #f2f5fa; }
+  .bar-label { font-size: 13px; color: #48484a; }
+  .bar-track { display: block; height: 12px; border-radius: 999px; background: #eef0f4; overflow: hidden; }
+  .bar-fill { display: block; height: 100%; border-radius: 999px; background: #007aff; }
+  .bar-fill.g-peer { background: #64a6ff; }
+  .bar-fill.g-frontier { background: #a8c6f0; }
+  .bar-num { font-size: 13px; text-align: right; color: #6e6e73; font-variant-numeric: tabular-nums; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+           gap: 16px; margin-top: 4px; }
+  .card { display: block; text-decoration: none; color: inherit; background: #fff;
+          border: 1px solid #e5e7ec; border-radius: 14px; padding: 16px 18px;
+          transition: box-shadow .15s, transform .15s; }
+  .card:hover { box-shadow: 0 6px 20px rgba(0,60,150,.10); transform: translateY(-2px); }
+  .card .t { font-size: 15px; font-weight: 600; line-height: 1.5; }
+  .card .te { font-size: 12px; color: #86868b; margin-top: 3px; line-height: 1.5; }
+  .card .s { font-size: 13px; color: #48484a; line-height: 1.7; margin-top: 8px; }
+  .card .m { display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+             margin-top: 10px; font-size: 11px; color: #86868b; }
+  .tag { font-size: 11px; line-height: 18px; border-radius: 6px; padding: 0 8px;
+         color: #007aff; background: rgba(0,122,255,.09); }
+  .tag.chain { color: #6e6e73; background: #f0f1f4; }
+  .score { display: inline-flex; align-items: center; justify-content: center;
+           min-width: 20px; height: 18px; border-radius: 6px; font-size: 11px;
+           color: #fff; background: #007aff; }
+  .score.low { background: #d2d2d7; color: #6e6e73; }
+  .empty { padding: 40px; text-align: center; color: #86868b; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .chip { border: 1px solid #e2e4e9; background: #fff; border-radius: 999px;
+          padding: 6px 14px; font-size: 13px; color: #48484a; cursor: pointer; }
+  .chip.sel { background: #007aff; border-color: #007aff; color: #fff; }
+  .chip .n { opacity: .65; font-size: 12px; }
+  .prod { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .cell { background: #fff; border-radius: 14px; padding: 20px 22px;
+          box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+  .cell .k { font-size: 13px; color: #6e6e73; }
+  .cell .v { font-size: 18px; font-weight: 600; margin-top: 8px; }
+  .cell .d { font-size: 12px; color: #86868b; margin-top: 6px; }
+  @media (max-width: 900px) {
+    header { padding: 16px; } main { padding: 16px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .prod { grid-template-columns: 1fr; }
+    .brand h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <svg class="logo" viewBox="0 0 64 64" aria-label="智枢标识">
+    <circle cx="32" cy="32" r="28" fill="#007aff"/>
+    <circle cx="32" cy="32" r="20" fill="none" stroke="#ffffff" stroke-opacity=".45" stroke-width="1.6"/>
+    <circle cx="32" cy="32" r="12" fill="none" stroke="#ffffff" stroke-opacity=".65" stroke-width="1.6"/>
+    <path d="M32 32 L54 18 A28 28 0 0 0 32 4 Z" fill="#ffffff" fill-opacity=".22"/>
+    <g stroke="#ffffff" stroke-width="1.8" stroke-opacity=".9">
+      <line x1="32" y1="32" x2="32" y2="10"/><line x1="32" y1="32" x2="54" y2="32"/>
+      <line x1="32" y1="32" x2="32" y2="54"/><line x1="32" y1="32" x2="10" y2="32"/>
+    </g>
+    <circle cx="32" cy="32" r="4.5" fill="#ffffff"/>
+    <circle cx="32" cy="10" r="2.6" fill="#ffffff"/>
+    <circle cx="54" cy="32" r="2.6" fill="#ffffff"/>
+    <circle cx="32" cy="54" r="2.6" fill="#ffffff"/>
+    <circle cx="10" cy="32" r="2.6" fill="#ffffff"/>
+  </svg>
+  <div class="brand">
+    <h1>智枢</h1>
+    <div class="sub">综合情报研究平台 · 外军指挥控制与前沿技术每日跟踪</div>
+  </div>
+  <div class="meta" id="meta"></div>
+</header>
+<nav class="tabs">
+  <button class="tab sel" data-v="overview">跟踪总览</button>
+  <button class="tab" data-v="items">主题条目</button>
+  <button class="tab" data-v="products">综述与报告</button>
+</nav>
+<main>
+  <section class="view on" id="v-overview">
+    <div class="stats" id="stats"></div>
+    <div class="panel">
+      <h2>主题分布<span class="note">累计条目 · 深蓝＝美军主线，中蓝＝俄英法德对照线，浅蓝＝前沿与基础 · 点击行跳到对应条目</span></h2>
+      <div id="bars"></div>
+    </div>
+    <div class="panel">
+      <h2>今日主题命中<span class="note" id="todayNote"></span></h2>
+      <div class="cards" id="todayCards"></div>
+    </div>
+  </section>
+  <section class="view" id="v-items">
+    <div class="chips" id="chips"></div>
+    <div class="cards" id="allCards"></div>
+  </section>
+  <section class="view" id="v-products">
+    <div class="prod" id="prod"></div>
+    <div class="panel">
+      <h2>最新产品</h2>
+      <div id="prodList" style="font-size:14px;line-height:2;color:#48484a"></div>
+    </div>
+  </section>
+</main>
+<script id="zz-data" type="application/json">
+{
+ "generated_at": "2026-10-31 13:03 UTC",
+ "last_fetch": "2026-10-30 13:29:36",
+ "today": "2026-10-31",
+ "stats": { "total": 1420, "today_new": 796, "today_tagged": 101, "days": 2 },
+ "topics": [
+  {"name": "JADC2联合全域指控", "count": 0, "note": "长期主线·美军联合层"},
+  {"name": "ABMS美空军作战管理", "count": 0, "note": "长期主线·空军线"},
+  {"name": "NGC2美陆军下一代指控", "count": 0, "note": "长期主线·陆军线（含会聚工程系列演习）"},
+  {"name": "超越计划美海军", "count": 1, "note": "长期主线·海军线"},
+  {"name": "俄军同类指控体系", "count": 0, "note": "对照线·俄（公开信息少，需甄别可信度）"},
+  {"name": "英军同类指控体系", "count": 3, "note": "对照线·英"},
+  {"name": "法军同类指控体系", "count": 1, "note": "对照线·法（SCORPION 协同作战）"},
+  {"name": "德军同类指控体系", "count": 0, "note": "对照线·德"},
+  {"name": "人工智能军事应用", "count": 6, "note": "前沿技术·AI（含 Maven 等指控相关 AI 项目）"},
+  {"name": "无人自主系统", "count": 156, "note": "前沿技术·无人自主"},
+  {"name": "指挥控制基础能力", "count": 15, "note": "指控主业底层"}
+ ],
+ "items": [
+  {"id":"ZB20261031-0952","title":"F-22 directs Collaborative Combat Aircraft in airborne tactical-control demonstration","title_en":"F-22 directs Collaborative Combat Aircraft in airborne tactical-control demonstration","link":"https://template5.dod.afpims.mil/404-Error-Page/Article/4627579/f-22-directs-collaborative-combat-aircraft-in-airborne-tactical-control-demonst/","date":"2026-10-16 17:30","source":"美国作战试验与鉴定局网","country":"美国","topics":["无人自主系统"],"chains":["②有人-无人协同指挥","⑤演习实验链路验证"],"score":8,"batch":"2026-10-31","summary":""},
+  {"id":"ZB20261031-0912","title":"General Atomics FQ-42 CCA Drone Production Ramp Up To Be Boosted By Boeing Subsidiary","title_en":"General Atomics FQ-42 CCA Drone Production Ramp Up To Be Boosted By Boeing Subsidiary","link":"https://www.twz.com/air/general-atomics-fq-42-cca-drone-production-ramp-up-to-be-boosted-by-boeing-subsidiary","date":"2026-10-23 20:39","source":"美国战区网","country":"美国","topics":["无人自主系统"],"chains":["②有人-无人协同指挥"],"score":6,"batch":"2026-10-31","summary":""},
+  {"id":"ZB20261031-0922","title":"AWS VP G2 Krishnamoorthy on the Future of Databases and Agentic AI | Cloud Wars Live","title_en":"AWS VP G2 Krishnamoorthy on the Future of Databases and Agentic AI | Cloud Wars Live","link":"https://cloudwars.com/ai/aws-vp-g2-krishnamoorthy-on-the-future-of-databases-and-agentic-ai-cloud-wars-live/","date":"2026-10-23 11:30","source":"美国云战争网","country":"美国","topics":["人工智能军事应用"],"chains":["④感知→决策"],"score":6,"batch":"2026-10-31","summary":""},
+  {"id":"ZB20261031-0924","title":"Denmark Awards Contract for AI-Ready Counter-Drone C2 Capability","title_en":"Denmark Awards Contract for AI-Ready Counter-Drone C2 Capability","link":"https://www.defenseadvancement.com/news/denmark-awards-contract-for-ai-ready-counter-drone-c2-capability/","date":"2026-10-23 06:49","source":"英国防务进展网","country":"英国","topics":["无人自主系统","指挥控制基础能力"],"chains":[],"score":6,"batch":"2026-10-31","summary":""},
+  {"id":"ZB20261031-1071","title":"Fraunhofer IFAM Establishes Validation Chain for Autonomous Systems in Offshore Wind","title_en":"Fraunhofer IFAM Establishes Validation Chain for Autonomous Systems in Offshore Wind","link":"https://www.marinetechnologynews.com/news/fraunhofer-establishes-validation-chain-667047","date":"2026-10-28 21:01","source":"美国海事技术新闻杂志网","country":"美国","topics":["无人自主系统"],"chains":[],"score":6,"batch":"2026-10-31","summary":""},
+  {"id":"ZB20261031-1235","title":"Air Force starting to game out sustainment framework for CCA drones","title_en":"Air Force starting to game out sustainment framework for CCA drones","link":"https://defensescoop.com/2026/10/21/air-force-cca-drones-sustainment-plan/","date":"2026-10-22 13:50","source":"美国米切尔航空航天研究所网","country":"美国","topics":["无人自主系统"],"chains":["②有人-无人协同指挥"],"score":6,"batch":"2026-10-31","summary":""},
+  {"id":"ZB20261031-1252","title":"EDGE supports UAE Navy trial of autonomous systems","title_en":"EDGE supports UAE Navy trial of autonomous systems","link":"https://navaltoday.com/2026/10/22/edge-supports-uae-navy-trial-of-autonomous-systems","date":"2026-10-22 07:12","source":"荷兰今日海军网","country":"荷兰","topics":["无人自主系统"],"chains":["⑤演习实验链路验证"],"score":6,"batch":"2026-10-31","summary":""},
+  {"id":"ZB20261031-1350","title":"Airbus U.S. Demonstrates Distributed Ground Control Capabilities During Latest Autonomous Flight Test","title_en":"Airbus U.S. Demonstrates Distributed Ground Control Capabilities During Latest Autonomous Flight Test","link":"https://seapowermagazine.org/airbus-u-s-demonstrates-distributed-ground-control-capabilities-during-latest-autonomous-flight-test/","date":"2026-10-28 17:40","source":"美国海上力量杂志网","country":"美国","topics":["无人自主系统"],"chains":["⑤演习实验链路验证"],"score":6,"batch":"2026-10-31","summary":""},
+  {"id":"ZB20261031-1365","title":"Silynxcom Develops AI-Powered Wearable That Hears Drones Coming","title_en":"Silynxcom Develops AI-Powered Wearable That Hears Drones Coming","link":"https://nextgendefense.com/silynxcom-wearable-hears-drones/","date":"2026-10-28 11:44","source":"美国下一代防务网","country":"美国","topics":["人工智能军事应用","无人自主系统"],"chains":[],"score":6,"batch":"2026-10-31","summary":""},
+  {"id":"ZB20261031-0824","title":"Government introduces bill to protect Defence assets from drones","title_en":"Government introduces bill to protect Defence assets from drones","link":"https://australianaviation.com.au/2026/10/government-introduces-new-bill-to-protect-defence-assets-from-drones/","date":"2026-10-28 03:04","source":"澳大利亚航空公司网","country":"澳大利亚","topics":["无人自主系统"],"chains":[],"score":4,"batch":"2026-10-31","summary":""},
+  {"id":"ZB20261031-0839","title":"Ukraine’s StarGate Drone Now Evacuating Wounded Soldiers","title_en":"Ukraine’s StarGate Drone Now Evacuating Wounded Soldiers","link":"https://www.twz.com/air/ukraines-stargate-drone-now-evacuating-wounded-soldiers","date":"2026-10-27 16:32","source":"美国战区网","country":"美国","topics":["无人自主系统"],"chains":[],"score":4,"batch":"2026-10-31","summary":""},
+  {"id":"ZB20261031-0841","title":"Inertial Labs Launches Programmable INS-NV Platform for Alt-PNT Development","title_en":"Inertial Labs Launches Programmable INS-NV Platform for Alt-PNT Development","link":"https://www.defenseadvancement.com/news/inertial-labs-launches-programmable-ins-nv-platform-for-alt-pnt-development/","date":"2026-10-27 15:47","source":"英国防务进展网","country":"英国","topics":["指挥控制基础能力"],"chains":[],"score":4,"batch":"2026-10-31","summary":""}
+ ],
+ "products": { "reviews_count": 1, "next_review_due": "2026-11-14", "recs_count": 0, "next_rec_due": "2026-12-30", "reports": [] }
+}
+</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('zz-data').textContent);
+  var GROUP = { 'JADC2联合全域指控': 'main', 'ABMS美空军作战管理': 'main',
+                'NGC2美陆军下一代指控': 'main', '超越计划美海军': 'main',
+                '俄军同类指控体系': 'g-peer', '英军同类指控体系': 'g-peer',
+                '法军同类指控体系': 'g-peer', '德军同类指控体系': 'g-peer' };
+  var NAMES = { 'JADC2联合全域指控': 'JADC2 联合全域', 'ABMS美空军作战管理': 'ABMS 空军',
+    'NGC2美陆军下一代指控': 'NGC2 陆军', '超越计划美海军': '超越计划 海军',
+    '俄军同类指控体系': '俄军同类体系', '英军同类指控体系': '英军同类体系',
+    '法军同类指控体系': '法军同类体系', '德军同类指控体系': '德军同类体系',
+    '人工智能军事应用': '人工智能', '无人自主系统': '无人自主', '指挥控制基础能力': '指控基础能力' };
+  var state = { tab: 'overview', topic: '__today__' };
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; });
+  }
+  function countOf(key) {
+    if (key === '__today__')
+      return D.items.filter(function (i) { return i.batch === D.today && i.topics.length; }).length;
+    if (key === '__all__') return D.items.length;
+    return D.items.filter(function (i) { return i.topics.indexOf(key) >= 0; }).length;
+  }
+  function cardHtml(i) {
+    var showEn = i.title_en && i.title_en !== i.title;
+    return '<a class="card" href="' + esc(i.link) + '" target="_blank" rel="noopener">' +
+      '<div class="t">' + esc(i.title) + '</div>' +
+      (showEn ? '<div class="te">' + esc(i.title_en) + '</div>' : '') +
+      (i.summary ? '<div class="s">' + esc(i.summary) + '</div>' : '') +
+      '<div class="m"><span class="score' + (i.score >= 4 ? '' : ' low') + '">' + i.score + '</span>' +
+      '<span>' + esc(i.source) + (i.country ? ' · ' + esc(i.country) : '') +
+      (i.date ? ' · ' + esc(i.date) : '') + '</span>' +
+      i.topics.map(function (t) { return '<span class="tag">' + esc(NAMES[t] || t) + '</span>'; }).join('') +
+      i.chains.map(function (c) { return '<span class="tag chain">' + esc(c) + '</span>'; }).join('') +
+      '</div></a>';
+  }
+  document.getElementById('meta').innerHTML =
+    '最近抓取 ' + esc(D.last_fetch || '—') + '<br>看板生成 ' + esc(D.generated_at);
+  document.querySelectorAll('.tab').forEach(function (b) {
+    b.onclick = function () {
+      state.tab = b.dataset.v;
+      document.querySelectorAll('.tab').forEach(function (x) { x.classList.toggle('sel', x === b); });
+      document.querySelectorAll('.view').forEach(function (v) {
+        v.classList.toggle('on', v.id === 'v-' + state.tab); });
+    };
+  });
+  var stats = document.getElementById('stats');
+  [['累计条目', D.stats.total, false], ['今日新入库', D.stats.today_new, false],
+   ['今日主题命中', D.stats.today_tagged, true], ['连续跟踪天数', D.stats.days, false]]
+    .forEach(function (kv) {
+      var el = document.createElement('div');
+      el.className = 'stat' + (kv[2] ? ' hot' : '');
+      el.innerHTML = '<div class="v">' + kv[1] + '</div><div class="k">' + kv[0] + '</div>';
+      stats.appendChild(el);
+    });
+  var bars = document.getElementById('bars');
+  var todayN = countOf('__today__');
+  var maxCount = Math.max.apply(null, D.topics.map(function (t) { return t.count; }).concat([1, todayN]));
+  D.topics.forEach(function (t) {
+    if (!t.count) return;
+    var g = GROUP[t.name] || 'g-frontier';
+    var r = document.createElement('div');
+    r.className = 'bar-row';
+    r.innerHTML = '<span class="bar-label">' + esc(NAMES[t.name] || t.name) + '</span>' +
+      '<span class="bar-track"><span class="bar-fill ' + g + '" style="width:' +
+      Math.max(t.count / maxCount * 100, 1.5) + '%"></span></span>' +
+      '<span class="bar-num">' + t.count + '</span>';
+    r.onclick = function () {
+      state.topic = t.name;
+      document.querySelector('.tab[data-v="items"]').click();
+      renderChips(); renderAll();
+    };
+    bars.appendChild(r);
+  });
+  var todayRows = D.items.filter(function (i) { return i.batch === D.today && i.topics.length; })
+                         .sort(function (a, b) { return b.score - a.score; });
+  document.getElementById('todayNote').textContent = '共 ' + todayRows.length + ' 条，按相关度排序，显示前 6 条';
+  document.getElementById('todayCards').innerHTML = todayRows.slice(0, 6).map(cardHtml).join('');
+  function renderChips() {
+    var chips = document.getElementById('chips');
+    chips.innerHTML = '';
+    [{ key: '__today__', name: '今日命中' }, { key: '__all__', name: '全部' }]
+      .concat(D.topics.filter(function (t) { return t.count > 0; })
+                      .map(function (t) { return { key: t.name, name: NAMES[t.name] || t.name }; }))
+      .forEach(function (t) {
+        var b = document.createElement('button');
+        b.className = 'chip' + (state.topic === t.key ? ' sel' : '');
+        b.innerHTML = esc(t.name) + ' <span class="n">' + countOf(t.key) + '</span>';
+        b.onclick = function () { state.topic = t.key; renderChips(); renderAll(); };
+        chips.appendChild(b);
+      });
+  }
+  function renderAll() {
+    var rows;
+    if (state.topic === '__today__') rows = todayRows;
+    else if (state.topic === '__all__') rows = D.items.slice().reverse();
+    else rows = D.items.filter(function (i) { return i.topics.indexOf(state.topic) >= 0; }).slice().reverse();
+    document.getElementById('allCards').innerHTML =
+      rows.slice(0, 120).map(cardHtml).join('') ||
+      '<div class="empty">该主题暂无条目，随每日抓取自动积累</div>';
+  }
+  var prod = document.getElementById('prod');
+  [['双周综述', '已出 ' + D.products.reviews_count + ' 篇', '下一期 ' + D.products.next_review_due],
+   ['深度报告', D.products.reports.length ? '在研 ' + D.products.reports.length + ' 份' : '待选题',
+    '选题由双月推荐产生'],
+   ['双月选题推荐', '已出 ' + D.products.recs_count + ' 期', '下一期 ' + D.products.next_rec_due]]
+    .forEach(function (kv) {
+      var el = document.createElement('div');
+      el.className = 'cell';
+      el.innerHTML = '<div class="k">' + kv[0] + '</div><div class="v">' +
+        esc(kv[1]) + '</div><div class="d">' + kv[2] + '</div>';
+      prod.appendChild(el);
+    });
+  var latest = D.products.reports.length ? D.products.reports : ['综述-2026年第1期-外军无人自主系统建设运用（已按防务快讯版式）'];
+  document.getElementById('prodList').innerHTML = latest.map(function (f) {
+    return '· ' + esc(f.replace(/\.md$/, '')); }).join('<br>');
+  renderChips();
+  renderAll();
+})();
+</script>
+</body>
+</html>
