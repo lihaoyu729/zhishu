@@ -194,7 +194,7 @@
 
 <script id="zz-data" type="application/json">
 {
- "generated_at": "2026-11-01 03:55 UTC",
+ "generated_at": "2026-11-01 04:01 UTC",
  "last_fetch": "2026-10-30 13:29:36",
  "today": "2026-11-01",
  "stats": {
@@ -2391,7 +2391,7 @@
   var prod = document.getElementById('prod');
   [['每日动态信息', '每日 09:12 批次持续积累', '按主题归档于资料库'],
    ['每周热点速递周报', '沿用智报哨兵规则', '待启动出刊'],
-   ['每月防务快讯综述', '已出 ' + D.products.reviews_count + ' 篇', '一期一主题'],
+   ['每月防务快讯综述', '已出 ' + (D.products.reviews_count + (D.products.single_list || []).length) + ' 篇', '一期一主题'],
    ['季度深度报告与智库译丛', D.products.reports.length ? '在研 ' + D.products.reports.length + ' 份' : '待选题',
     '双月推荐 ≥2 个主题'],
    ['年度课题研究报告', '待立项', '及衍生产品']]
