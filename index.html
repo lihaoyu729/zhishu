@@ -100,8 +100,9 @@
   .rev { display: block; background: #fff; border: 1px solid #e5e7ec; border-radius: 12px;
          padding: 16px 20px; margin-top: 12px; text-decoration: none; color: inherit; }
   .rev:hover { border-color: #007aff; }
-  .rev .rt { font-size: 16px; font-weight: 600; }
+  .rev .rt { font-size: 16px; font-weight: 600; display: block; color: inherit; text-decoration: none; }
   .rev .rd { font-size: 13px; color: #007aff; margin-top: 6px; }
+  .rev .rd a { color: #007aff; text-decoration: none; }
 
   @media (max-width: 900px) {
     header { padding: 16px; } main { padding: 16px; }
@@ -109,6 +110,11 @@
     .prod { grid-template-columns: 1fr; }
     .brand h1 { font-size: 30px; }
   }
+  #toTop { position: fixed; right: 28px; bottom: 28px; width: 44px; height: 44px;
+           border-radius: 50%; border: 1px solid #e2e4e9; background: #fff;
+           color: #007aff; font-size: 20px; cursor: pointer;
+           box-shadow: 0 4px 16px rgba(0,0,0,.12); display: none; z-index: 99; }
+  #toTop:hover { background: #007aff; color: #fff; }
 </style>
 </head>
 <body>
@@ -184,7 +190,7 @@
 
 <script id="zz-data" type="application/json">
 {
- "generated_at": "2026-11-01 01:12 UTC",
+ "generated_at": "2026-11-01 01:21 UTC",
  "last_fetch": "2026-10-30 13:29:36",
  "today": "2026-11-01",
  "stats": {
@@ -2132,17 +2138,20 @@
   "review_list": [
    {
     "title": "综述-2026年第1期-外军无人自主系统建设运用",
-    "url": "review-004.html"
+    "url": "review-004.html",
+    "docx": "综述-2026年第1期-外军无人自主系统建设运用.docx"
    }
   ],
   "single_list": [
    {
     "title": "【联合全域指控】美印太司令部启用\"印太任务网络\"，构建零信任盟友协同指控环境",
-    "url": "single-001.html"
+    "url": "single-001.html",
+    "docx": "single-001.docx"
    },
    {
-    "title": "",
-    "url": "single-002.html"
+    "title": "【联合全域指控】美陆军启动全球20处卫星地面站数字中频改造",
+    "url": "single-002.html",
+    "docx": "single-002.docx"
    }
   ]
  }
@@ -2312,21 +2321,33 @@
 
   /* 专题单篇 */
   var singles = D.products.single_list || [];
-  document.getElementById('singleList').innerHTML = singles.map(function (r) {
-    return '<a class="rev" href="' + esc(r.url) + '" target="_blank" rel="noopener">' +
-      '<div class="rt">' + esc(r.title) + '</div><div class="rd">点击阅读全文 →</div></a>';
-  }).join('') || '<div class="empty">专题单篇将随每日精读产出</div>';
+  function revHtml(r) {
+    return '<div class="rev"><a class="rt" href="' + esc(r.url) + '" target="_blank" rel="noopener">' +
+      esc(r.title) + '</a><div class="rd"><a href="' + esc(r.url) +
+      '" target="_blank" rel="noopener">阅读全文 →</a>' +
+      (r.docx ? '　｜　<a href="' + esc(r.docx) + '" style="color:#34c759">下载 Word</a>' : '') +
+      '</div></div>';
+  }
+  document.getElementById('singleList').innerHTML = singles.map(revHtml).join('') ||
+    '<div class="empty">专题单篇将随每日精读产出</div>';
 
   var list = document.getElementById('prodList');
   var reviews = D.products.review_list || [];
-  list.innerHTML = reviews.map(function (r) {
-    return '<a class="rev" href="' + esc(r.url) + '" target="_blank" rel="noopener">' +
-      '<div class="rt">' + esc(r.title) + '</div><div class="rd">点击阅读全文 →</div></a>';
-  }).join('') || '<div class="empty">综述文稿将随双周任务自动生成</div>';
+  list.innerHTML = reviews.map(revHtml).join('') ||
+    '<div class="empty">综述文稿将随每月任务自动生成</div>';
 
   renderChips();
   renderAll();
+
+  /* 回到顶端 */
+  var mainEl = document.querySelector('main');
+  var toTop = document.getElementById('toTop');
+  mainEl.addEventListener('scroll', function () {
+    toTop.style.display = mainEl.scrollTop > 300 ? 'block' : 'none';
+  });
+  toTop.onclick = function () { mainEl.scrollTo({ top: 0, behavior: 'smooth' }); };
 })();
 </script>
+<button id="toTop" title="回到顶端" aria-label="回到顶端">↑</button>
 </body>
 </html>
