@@ -144,8 +144,8 @@
 <nav class="tabs">
   <button class="tab sel" data-v="overview">跟踪总览</button>
   <button class="tab" data-v="items">主题条目</button>
-  <button class="tab" data-v="products">综述与报告</button>
   <button class="tab" data-v="docs">文档库</button>
+  <button class="tab" data-v="products">综述与报告</button>
 </nav>
 
 <main>
@@ -195,7 +195,7 @@
 
 <script id="zz-data" type="application/json">
 {
- "generated_at": "2026-11-01 13:05 UTC",
+ "generated_at": "2026-11-01 13:39 UTC",
  "last_fetch": "2026-10-30 13:29:36",
  "today": "2026-11-01",
  "stats": {
@@ -2738,6 +2738,7 @@
       '　<a href="' + esc(doc.url) + '" target="_blank" rel="noopener" style="color:#007aff;text-decoration:none">原文页 →</a></div>' +
       '</div></div>';
   }).join('') || '<div class="empty">文档库持续跟踪智库报告、官方文件与期刊原文，跟踪到即下载归档</div>';
+  }
 
   renderChips();
   renderAll();
