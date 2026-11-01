@@ -90,7 +90,18 @@
   .chip.sel { background: #007aff; border-color: #007aff; color: #fff; }
   .chip .n { opacity: .65; font-size: 13px; }
 
-  /* ── 产品中心 ─────────────────────── */
+  /* 情报产品流水线：日→周→月→季→年五层可视化 */
+  .pipeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .stage { background: #fff; border-radius: 14px; padding: 18px 16px;
+           box-shadow: 0 1px 4px rgba(0,0,0,.05); position: relative; }
+  .stage:not(:last-child)::after { content: "→"; position: absolute; right: -14px;
+           top: 42%; color: #b6bcc7; font-size: 18px; }
+  .stage .icon { font-size: 22px; font-weight: 700; color: #007aff; }
+  .stage .name { font-size: 15px; font-weight: 600; margin-top: 8px; }
+  .stage .cnt { font-size: 26px; font-weight: 600; margin-top: 10px;
+                font-variant-numeric: tabular-nums; }
+  .stage .meta { font-size: 12px; color: #86868b; margin-top: 4px; line-height: 1.6; }
+  .stage.pending .icon, .stage.pending .cnt { color: #b6bcc7; }
   .prod { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   .cell { background: #fff; border-radius: 14px; padding: 20px 24px;
           box-shadow: 0 1px 4px rgba(0,0,0,.05); }
@@ -145,7 +156,7 @@
   <button class="tab sel" data-v="overview">跟踪总览</button>
   <button class="tab" data-v="items">本周新到</button>
   <button class="tab" data-v="docs">资料库</button>
-  <button class="tab" data-v="products">综述与报告</button>
+  <button class="tab" data-v="products">情报产品</button>
 </nav>
 
 <main>
@@ -177,7 +188,7 @@
   </section>
 
   <section class="view" id="v-products">
-    <div class="prod" id="prod"></div>
+    <div class="pipeline" id="pipeline"></div>
     <div class="panel">
       <h2>专题单篇<span class="note">防务快讯版式 · 1500 字以上 · 配图</span></h2>
       <div id="singleList"></div>
@@ -195,7 +206,7 @@
 
 <script id="zz-data" type="application/json">
 {
- "generated_at": "2026-11-01 15:19 UTC",
+ "generated_at": "2026-11-01 15:23 UTC",
  "week_start": "2026-10-26",
  "last_fetch": "2026-10-30 13:29:36",
  "today": "2026-11-01",
@@ -2842,21 +2853,23 @@
       '<div class="empty">本周暂无新到条目，随每日抓取自动积累；历史资料请见「资料库」</div>';
   }
 
-  /* 产品框架：五层情报产品 */
-  var prod = document.getElementById('prod');
-  [['每日动态信息', '每日 09:12 批次持续积累', '按主题归档于资料库'],
-   ['每周热点速递周报', '沿用智报哨兵规则', '待启动出刊'],
-   ['每月防务快讯综述', '已出 ' + (D.products.reviews_count + (D.products.single_list || []).length) + ' 篇', '一期一主题'],
-   ['季度深度报告与智库译丛', D.products.reports.length ? '在研 ' + D.products.reports.length + ' 份' : '待选题',
-    '双月推荐 ≥2 个主题'],
-   ['年度课题研究报告', '待立项', '及衍生产品']]
-    .forEach(function (kv) {
-      var el = document.createElement('div');
-      el.className = 'cell';
-      el.innerHTML = '<div class="k">' + kv[0] + '</div><div class="v">' +
-        esc(kv[1]) + '</div><div class="d">' + kv[2] + '</div>';
-      prod.appendChild(el);
-    });
+  /* 情报产品流水线（日→周→月→季→年） */
+  var prod = document.getElementById('pipeline');
+  var stages = [
+    { icon: '日', name: '每日动态信息', cnt: '日更', meta: ['每日 09:12 批次', '按主题归档资料库'], pending: false },
+    { icon: '周', name: '每周热点速递周报', cnt: '待启动', meta: ['沿用智报哨兵规则', '8 篇组版＋逐篇配图'], pending: true },
+    { icon: '月', name: '每月防务快讯综述', cnt: (D.products.reviews_count + (D.products.single_list || []).length) + ' 篇',
+      meta: ['一期一主题', '网页＋Word 双版本'], pending: false },
+    { icon: '季', name: '季度深度报告与智库译丛', cnt: D.products.reports.length ? '在研 ' + D.products.reports.length + ' 份' : '待选题',
+      meta: ['双月推荐 ≥2 个主题', '资料库＋文档库支撑'], pending: !D.products.reports.length },
+    { icon: '年', name: '年度课题研究报告', cnt: '待立项', meta: ['JADC2 全史研究框架', '及衍生产品'], pending: true }
+  ];
+  prod.innerHTML = stages.map(function (s) {
+    return '<div class="stage' + (s.pending ? ' pending' : '') + '">' +
+      '<div class="icon">' + s.icon + '</div><div class="name">' + s.name + '</div>' +
+      '<div class="cnt">' + s.cnt + '</div>' +
+      '<div class="meta">' + s.meta.join('<br>') + '</div></div>';
+  }).join('');
 
   /* 专题单篇 */
   var singles = D.products.single_list || [];
