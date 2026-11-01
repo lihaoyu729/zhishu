@@ -188,13 +188,14 @@
     </div>
   </section>
   <section class="view" id="v-docs">
+    <div class="chips" id="docChips"></div>
     <div class="cards" id="docCards"></div>
   </section>
 </main>
 
 <script id="zz-data" type="application/json">
 {
- "generated_at": "2026-11-01 12:51 UTC",
+ "generated_at": "2026-11-01 13:05 UTC",
  "last_fetch": "2026-10-30 13:29:36",
  "today": "2026-11-01",
  "stats": {
@@ -2574,10 +2575,15 @@
     else if (c === '智库/研究机构') cats.thinktank++;
     else cats.news++;
   });
+  /* 指标卡：主题命中居首；官方文件/智库报告仅计文档库原文，不计动态新闻 */
+  var docsArr = D.documents || [];
+  var officialN = docsArr.filter(function (d) { return d.type === '官方文件'; }).length;
+  var thinkN = docsArr.filter(function (d) { return d.type === '智库报告'; }).length;
   var stats = document.getElementById('stats');
   [['主题命中（累计）', D.items.filter(function (i) { return i.topics.length; }).length, true, null],
-   ['动态类信息', cats.news, false, 'news'], ['官方文件类', cats.official, false, 'official'],
-   ['智库报告类', cats.thinktank, false, 'thinktank']]
+   ['动态类信息', D.items.filter(function (i) { return i.topics.length; }).length, false, 'news'],
+   ['官方文件类', officialN, false, 'official'],
+   ['智库报告类', thinkN, false, 'thinktank']]
     .forEach(function (kv) {
       var el = document.createElement('div');
       el.className = 'stat' + (kv[2] ? ' hot' : '');
@@ -2585,10 +2591,17 @@
       el.title = kv[3] ? '点击筛选 ' + kv[0] : '点击查看全部主题命中';
       el.innerHTML = '<div class="v">' + kv[1] + '</div><div class="k">' + kv[0] + '</div>';
       el.onclick = function () {
-        state.catFilter = kv[3];
-        state.topic = kv[3] ? '__allhits__' : '__allhits__';
-        document.querySelector('.tab[data-v="items"]').click();
-        renderChips(); renderAll();
+        if (kv[3] === 'official' || kv[3] === 'thinktank') {
+          // 官方文件类/智库报告类：进文档库对应类型
+          state.docType = kv[3] === 'official' ? '官方文件' : '智库报告';
+          document.querySelector('.tab[data-v="docs"]').click();
+          renderDocs();
+        } else {
+          state.catFilter = null;
+          state.topic = '__allhits__';
+          document.querySelector('.tab[data-v="items"]').click();
+          renderChips(); renderAll();
+        }
       };
       stats.appendChild(el);
     });
@@ -2695,9 +2708,24 @@
     '<div class="empty">综述文稿将随每月任务自动生成</div>';
 
   /* 文档库：原文 PDF＋封面＋机构＋简介＋下载 */
-  var docCards = document.getElementById('docCards');
-  var docs = D.documents || [];
-  docCards.innerHTML = docs.map(function (doc) {
+  function renderDocs() {
+    var docs = D.documents || [];
+    // 类型筛选条
+    var chips = document.getElementById('docChips');
+    var types = ['全部', '智库报告', '官方文件', '期刊'];
+    chips.innerHTML = types.map(function (t) {
+      return '<button class="chip' + ((state.docType || '全部') === t ? ' sel' : '') +
+        '" data-t="' + t + '">' + t + '</button>';
+    }).join('');
+    chips.querySelectorAll('.chip').forEach(function (b) {
+      b.onclick = function () {
+        state.docType = b.dataset.t === '全部' ? null : b.dataset.t;
+        renderDocs();
+      };
+    });
+    var rows = state.docType ? docs.filter(function (d) { return d.type === state.docType; }) : docs;
+    var docCards = document.getElementById('docCards');
+    docCards.innerHTML = rows.map(function (doc) {
     return '<div class="card" style="display:flex;gap:16px">' +
       '<img src="' + esc(doc.cover) + '" alt="封面" style="width:110px;height:150px;object-fit:cover;border:1px solid #e5e7ec;border-radius:6px;flex:none">' +
       '<div style="flex:1;min-width:0">' +
