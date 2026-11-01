@@ -145,6 +145,7 @@
   <button class="tab sel" data-v="overview">跟踪总览</button>
   <button class="tab" data-v="items">主题条目</button>
   <button class="tab" data-v="products">综述与报告</button>
+  <button class="tab" data-v="docs">文档库</button>
 </nav>
 
 <main>
@@ -186,11 +187,14 @@
       <div id="prodList"></div>
     </div>
   </section>
+  <section class="view" id="v-docs">
+    <div class="cards" id="docCards"></div>
+  </section>
 </main>
 
 <script id="zz-data" type="application/json">
 {
- "generated_at": "2026-11-01 01:21 UTC",
+ "generated_at": "2026-11-01 02:00 UTC",
  "last_fetch": "2026-10-30 13:29:36",
  "today": "2026-11-01",
  "stats": {
@@ -2154,7 +2158,48 @@
     "docx": "single-002.docx"
    }
   ]
- }
+ },
+ "documents": [
+  {
+   "id": "mitchell-cca",
+   "title": "The Need for Collaborative Combat Aircraft for Disruptive Air Warfare",
+   "title_cn": "协同作战飞机：破坏性空中作战的必然选择",
+   "org": "美国米切尔航空航天研究所",
+   "type": "智库报告",
+   "date": "2024-02",
+   "pages": 54,
+   "summary": "基于米切尔研究所兵棋推演，论证协同作战飞机（CCA）对夺取空中优势的价值：以可负担的数量规模弥补有人机队缺口，与有人机协同或独立运用，扰乱对手反介入/区域拒止体系。",
+   "url": "https://www.mitchellaerospacepower.org/the-need-for-collaborativecombat-aircraft-for-disruptive-air-warfare/",
+   "file": "docs/mitchell-cca.pdf",
+   "cover": "docs/mitchell-cca-cover.png"
+  },
+  {
+   "id": "rand-jadc2",
+   "title": "Joint All-Domain Command and Control for Modern Warfare: An Analytical Framework for Identifying and Developing Artificial Intelligence Applications",
+   "title_cn": "现代战争联合全域指挥控制：人工智能应用识别与开发的分析框架",
+   "org": "美国兰德公司",
+   "type": "智库报告",
+   "date": "2020",
+   "pages": 78,
+   "summary": "兰德公司为 JADC2 提出人工智能应用识别与开发的分析框架，系统梳理联合全域指控中可引入 AI 的任务环节与评估方法。",
+   "url": "https://www.rand.org/pubs/research_reports/RR4408z1.html",
+   "file": "docs/rand-jadc2.pdf",
+   "cover": "docs/rand-jadc2-cover.png"
+  },
+  {
+   "id": "rusi-jado",
+   "title": "Building the Capacity to Conduct Joint All-Domain Operations (JADO)",
+   "title_cn": "构建联合全域作战能力",
+   "org": "英国皇家联合军种研究所（RUSI）",
+   "type": "智库报告",
+   "date": "2022",
+   "pages": 38,
+   "summary": "分析英国在资源受限条件下发展多域一体化/联合全域作战（JADO）能力的渐进路径，涵盖指控、情报与火力协同。",
+   "url": "https://rusi.org/explore-our-research/publications/occasional-papers/building-capacity-conduct-joint-all-domain-operations-jado",
+   "file": "docs/rusi-jado.pdf",
+   "cover": "docs/rusi-jado-cover.png"
+  }
+ ]
 }
 </script>
 <script>
@@ -2336,10 +2381,26 @@
   list.innerHTML = reviews.map(revHtml).join('') ||
     '<div class="empty">综述文稿将随每月任务自动生成</div>';
 
+  /* 文档库：原文 PDF＋封面＋机构＋简介＋下载 */
+  var docCards = document.getElementById('docCards');
+  var docs = D.documents || [];
+  docCards.innerHTML = docs.map(function (doc) {
+    return '<div class="card" style="display:flex;gap:16px">' +
+      '<img src="' + esc(doc.cover) + '" alt="封面" style="width:110px;height:150px;object-fit:cover;border:1px solid #e5e7ec;border-radius:6px;flex:none">' +
+      '<div style="flex:1;min-width:0">' +
+      '<div class="t">' + esc(doc.title_cn) + '</div>' +
+      '<div class="te">' + esc(doc.title) + '</div>' +
+      '<div class="m"><span class="tag chain">' + esc(doc.type) + '</span>' +
+      '<span>' + esc(doc.org) + ' · ' + esc(doc.date) + ' · ' + doc.pages + ' 页</span></div>' +
+      '<div class="s">' + esc(doc.summary) + '</div>' +
+      '<div class="m"><a href="' + esc(doc.file) + '" style="color:#34c759;text-decoration:none;font-weight:600">下载 PDF ↓</a>' +
+      '　<a href="' + esc(doc.url) + '" target="_blank" rel="noopener" style="color:#007aff;text-decoration:none">原文页 →</a></div>' +
+      '</div></div>';
+  }).join('') || '<div class="empty">文档库持续跟踪智库报告、官方文件与期刊原文，跟踪到即下载归档</div>';
+
   renderChips();
   renderAll();
 
-  /* 回到顶端 */
   var mainEl = document.querySelector('main');
   var toTop = document.getElementById('toTop');
   mainEl.addEventListener('scroll', function () {
