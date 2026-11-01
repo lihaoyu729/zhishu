@@ -204,9 +204,10 @@
   </section>
 </main>
 
+<button id="toTop" title="回到顶端" aria-label="回到顶端">↑</button>
 <script id="zz-data" type="application/json">
 {
- "generated_at": "2026-11-01 15:30 UTC",
+ "generated_at": "2026-11-01 15:41 UTC",
  "week_start": "2026-10-26",
  "last_fetch": "2026-10-30 13:29:36",
  "today": "2026-11-01",
@@ -2940,9 +2941,8 @@
   mainEl.addEventListener('scroll', function () {
     toTop.style.display = mainEl.scrollTop > 300 ? 'block' : 'none';
   });
-  toTop.onclick = function () { mainEl.scrollTo({ top: 0, behavior: 'smooth' }); };
+  if (toTop) toTop.onclick = function () { mainEl.scrollTo({ top: 0, behavior: 'smooth' }); };
 })();
 </script>
-<button id="toTop" title="回到顶端" aria-label="回到顶端">↑</button>
 </body>
 </html>
