@@ -206,7 +206,7 @@
 
 <script id="zz-data" type="application/json">
 {
- "generated_at": "2026-11-01 15:23 UTC",
+ "generated_at": "2026-11-01 15:30 UTC",
  "week_start": "2026-10-26",
  "last_fetch": "2026-10-30 13:29:36",
  "today": "2026-11-01",
@@ -2930,19 +2930,6 @@
       html += rows.map(cardHtml).join('');
     }
     docCards.innerHTML = html || '<div class="empty">资料库持续积累：动态信息、综述性文章、会议文件、期刊、官方文件、智库报告</div>';
-  }
-    return '<div class="card" style="display:flex;gap:16px">' +
-      '<img src="' + esc(doc.cover) + '" alt="封面" style="width:110px;height:150px;object-fit:cover;border:1px solid #e5e7ec;border-radius:6px;flex:none">' +
-      '<div style="flex:1;min-width:0">' +
-      '<div class="t">' + esc(doc.title_cn) + '</div>' +
-      '<div class="te">' + esc(doc.title) + '</div>' +
-      '<div class="m"><span class="tag chain">' + esc(doc.type) + '</span>' +
-      '<span>' + esc(doc.org) + ' · ' + esc(doc.date) + ' · ' + doc.pages + ' 页</span></div>' +
-      '<div class="s">' + esc(doc.summary) + '</div>' +
-      '<div class="m"><a href="' + esc(doc.file) + '" style="color:#34c759;text-decoration:none;font-weight:600">下载 PDF ↓</a>' +
-      '　<a href="' + esc(doc.url) + '" target="_blank" rel="noopener" style="color:#007aff;text-decoration:none">原文页 →</a></div>' +
-      '</div></div>';
-  }).join('') || '<div class="empty">文档库持续跟踪智库报告、官方文件与期刊原文，跟踪到即下载归档</div>';
   }
 
   renderChips();
