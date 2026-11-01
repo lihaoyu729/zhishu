@@ -207,7 +207,7 @@
 <button id="toTop" title="回到顶端" aria-label="回到顶端">↑</button>
 <script id="zz-data" type="application/json">
 {
- "generated_at": "2026-11-01 15:41 UTC",
+ "generated_at": "2026-11-01 15:48 UTC",
  "week_start": "2026-10-26",
  "last_fetch": "2026-10-30 13:29:36",
  "today": "2026-11-01",
@@ -2836,7 +2836,7 @@
     var rows;
     if (state.topic === '__today__') rows = todayRows;
     else if (state.topic === '__allhits__') rows = D.items.filter(function (i) {
-      // 本周命中：源站发布日落在本周一以来
+      // 仅「全部命中」限本周窗口；具体主题展示全部历史
       return i.date >= D.week_start;
     }).slice().reverse();
     else rows = D.items.filter(function (i) { return i.topics.indexOf(state.topic) >= 0; }).slice().reverse();
